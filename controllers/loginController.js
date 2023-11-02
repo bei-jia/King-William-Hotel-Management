@@ -1,6 +1,6 @@
 const loginView = (req, res) => {
   const pageTitle = "Login";
-  const pageStyle = "/login.css";
+  const pageStyle = "/css/login.css";
   res.render("login", {
     pageTitle: pageTitle,
     pageStyle: pageStyle,
