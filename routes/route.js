@@ -1,5 +1,6 @@
 const express = require("express");
 const { loginView } = require("../controllers/loginController");
+const { manageController } = require("../controllers/manageController");
 const {
   allGuestView,
   addGuestView,
@@ -8,7 +9,10 @@ const {
 const router = express.Router();
 
 // Login Route
-router.get("/", loginView);
+router.get("/login", loginView);
+
+// Manage Route
+router.get("/manage", manageController);
 
 // Guest Route
 router.get("/guest/all-guests", allGuestView);

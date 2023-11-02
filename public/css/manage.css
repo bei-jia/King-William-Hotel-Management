@@ -1,0 +1,76 @@
+body {
+  background: url("/images/pexels-pixabay-258154.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Montserrat";
+  font-style: normal;
+  line-height: normal;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  image-rendering: pixelated;
+  background-position: 50% 50%;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  padding: 1rem;
+}
+
+section {
+  background: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+section .title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.selection {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5rem;
+  margin-right: 2rem;
+}
+
+.selection > div {
+  text-align: center;
+  border-radius: 1rem;
+  background: #ffffff;
+  margin: 1rem;
+  width: 20%;
+}
+
+.selection > div > p {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.selection > div > img {
+  width: 50%;
+  margin-top: 1rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited,
+a:link,
+a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
