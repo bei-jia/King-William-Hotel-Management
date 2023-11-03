@@ -1,6 +1,10 @@
 <div class="header-container">
-  <img src="/images/king-william-logo.png" class="logo" />
-  <h1>King William's - Add Guest</h1>
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Reservation</h1>
 </div>
 <div class="container">
   <div class="entry-item">
@@ -86,7 +90,39 @@
       onclick="clearEntryBox('phone')"
     >Clear</button>
   </div>
-  <button onclick="/* Place holder for 'Submit' function */">Submit</button>
+  <div class="entry-item">
+    <input
+      type="date"
+      id="checkinDate"
+      class="entry-input"
+      placeholder="Check-in Date"
+    />
+    <button
+      class="clear-individual"
+      onclick="clearEntryBox('checkinDate')"
+    >Clear</button>
+  </div>
+  <div class="entry-item">
+    <input type="text" id="roomNo" class="entry-input" placeholder="Room No." />
+    <button
+      class="clear-individual"
+      onclick="clearEntryBox('roomNo')"
+    >Clear</button>
+  </div>
+  <div class="entry-item">
+    <input
+      type="number"
+      id="depositAmount"
+      class="entry-input"
+      placeholder="Deposit Amount"
+      step="0.01"
+    />
+    <button
+      class="clear-individual"
+      onclick="clearEntryBox('depositAmount')"
+    >Clear</button>
+  </div>
+  <button onclick="/* Placeholder for 'Confirm' function */">Confirm</button>
   <button onclick="clearAllEntryBoxes()">Clear All</button>
 </div>
 <div style="text-align: center; margin-top: 20px;">

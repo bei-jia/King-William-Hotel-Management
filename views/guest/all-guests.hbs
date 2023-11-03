@@ -37,7 +37,7 @@
     </div>
     <div class="buttons-group">
       <button onclick="/* Search function */">Search</button>
-      <button onclick="clearSearchBox('searchInput')">Clear</button>
+      <button onclick="clearEntryBox('searchInput')">Clear</button>
     </div>
   </div>
 
@@ -66,9 +66,4 @@
   <button onclick="window.location.href='main.html'">Return to Main Page</button>
 </div>
 
-<script>
-  function clearSearchBox(elementId) { document.getElementById(elementId).value
-  = ''; } function clearAllSearchBoxes() { var inputs =
-  document.querySelectorAll('.search-input'); inputs.forEach(function(input) {
-  input.value = ''; }); }
-</script>
+<script src="/js/utility.js"></script>
