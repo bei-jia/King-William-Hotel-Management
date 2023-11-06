@@ -1,0 +1,119 @@
+body {
+  background: url("/images/pexels-pixabay-258154.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Poppins";
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  image-rendering: pixelated;
+  background-position: 50% 50%;
+  overflow: hidden;
+}
+
+section {
+  margin: 10%;
+  border-radius: 2.5rem;
+  background: #ffffff;
+  display: flex;
+  flex-shrink: 0;
+}
+
+section .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+section .left img {
+  border-radius: 2rem 0rem 0rem 2rem;
+  padding-right: 5.39rem;
+  width: 100%;
+  height: 100%;
+}
+
+section .right {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  width: 80%;
+}
+
+section .right > form {
+  margin-left: 4rem;
+}
+
+input {
+  margin-top: 3rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #939393;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.75rem;
+  padding: 2px 5px;
+  width: 100%;
+  align-self: center;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+}
+
+.col {
+  float: left;
+  align-self: center;
+  position: relative;
+}
+
+.input ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #2c6b5b;
+  transition: 0.4s;
+}
+.input:focus ~ .focus-border {
+  width: 103%;
+  transition: 0.4s;
+}
+
+section .right .title {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+section .right .title::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  padding: 0.25rem;
+  border-bottom: 5px solid #28807c;
+}
+
+section .right .button {
+  height: 5.1875rem;
+  border-radius: 6.25rem;
+  background: #213a39;
+  color: #fff;
+  font-size: 2.25rem;
+  margin-top: 4rem;
+  text-align: center;
+  align-self: center;
+  width: 85%;
+}

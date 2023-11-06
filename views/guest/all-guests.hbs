@@ -1,0 +1,69 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Guests</h1>
+</div>
+<div class="container">
+  <div class="search-section">
+    <div class="entry-item">
+      <input
+        type="text"
+        id="searchInput"
+        class="entry-input"
+        placeholder="Search..."
+      />
+    </div>
+    <div class="radio-group">
+      <input
+        type="radio"
+        id="guestID"
+        name="searchType"
+        value="guestID"
+        checked
+      />
+      <label for="guestID">Guest ID</label>
+
+      <input type="radio" id="name" name="searchType" value="name" />
+      <label for="name">Name</label>
+
+      <input type="radio" id="email" name="searchType" value="email" />
+      <label for="email">Email</label>
+
+      <input type="radio" id="phone" name="searchType" value="phone" />
+      <label for="phone">Phone</label>
+    </div>
+    <div class="buttons-group">
+      <button onclick="/* Search function */">Search</button>
+      <button onclick="clearEntryBox('searchInput')">Clear</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Guest ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Postal Code</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>
