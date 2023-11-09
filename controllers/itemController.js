@@ -7,4 +7,13 @@ const addItemView = (req, res) => {
   });
 };
 
-module.exports = { addItemView };
+const allItemsView = (req, res) => {
+  const pageTitle = "King William's - All Items";
+  const pageStyle = "/css/item/all-items.css";
+  res.render("item/all-items", {
+    pageTitle: pageTitle,
+    pageStyle: pageStyle,
+  });
+};
+
+module.exports = { addItemView, allItemsView };

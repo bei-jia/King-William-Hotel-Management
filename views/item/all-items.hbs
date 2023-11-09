@@ -1,0 +1,69 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Items</h1>
+</div>
+<div class="container">
+  <div class="search-section">
+    <div class="entry-item">
+      <input
+        type="text"
+        id="searchInput"
+        class="entry-input"
+        placeholder="Search..."
+      />
+    </div>
+    <div class="radio-group">
+      <input
+        type="radio"
+        id="itemId"
+        name="searchType"
+        value="itemID"
+        checked
+      />
+      <label for="itemID">Item ID</label>
+
+      <br />
+
+      <input
+        type="radio"
+        id="description"
+        name="searchType"
+        value="description"
+      />
+      <label for="description">Description</label>
+
+      <br />
+
+      <input type="radio" id="price" name="searchType" value="price" />
+      <label for="price">Price</label>
+    </div>
+    <div class="buttons-group">
+      <button onclick="/* Search function */">Search</button>
+      <button onclick="clearEntryBox('searchInput')">Clear</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Item ID</th>
+          <th>Description</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>

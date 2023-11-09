@@ -9,7 +9,7 @@ const {
   addGuestStayView,
   allGuestStaysView,
 } = require("../controllers/guestStayController");
-const { addItemView } = require("../controllers/itemController");
+const { addItemView, allItemsView } = require("../controllers/itemController");
 
 const router = express.Router();
 
@@ -29,5 +29,6 @@ router.get("/guest-stay/all-guest-stays", allGuestStaysView);
 
 // Item Routes
 router.get("/item/add-item", addItemView);
+router.get("/item/all-items", allItemsView);
 
 module.exports = router;
