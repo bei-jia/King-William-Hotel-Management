@@ -1,0 +1,94 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Guest Stays</h1>
+</div>
+<div class="container">
+  <div class="search-section">
+    <div class="entry-item">
+      <input
+        type="text"
+        id="searchInput"
+        class="entry-input"
+        placeholder="Search..."
+      />
+    </div>
+    <div class="radio-group">
+      <input
+        type="radio"
+        id="guestStayID"
+        name="searchType"
+        value="guestStayID"
+        checked
+      />
+      <label for="guestID">Guest Stay ID</label>
+
+      <br />
+
+      <input type="radio" id="checkIn" name="searchType" value="name" />
+      <label for="name">Check In Date</label>
+
+      <br />
+
+      <input type="radio" id="checkOut" name="searchType" value="email" />
+      <label for="email">Check Out Date</label>
+
+      <br />
+
+      <input type="radio" id="balance" name="searchType" value="phone" />
+      <label for="phone">Balance</label>
+
+      <br />
+
+      <input type="radio" id="isCancelled" name="searchType" value="phone" />
+      <label for="phone">Is Cancelled?</label>
+
+      <br />
+
+      <input type="radio" id="cancelledTime" name="searchType" value="phone" />
+      <label for="phone">Cancelled Time</label>
+
+      <br />
+
+      <input type="radio" id="cancelledTime" name="searchType" value="phone" />
+      <label for="phone">Guest ID</label>
+
+      <br />
+
+      <input type="radio" id="cancelledTime" name="searchType" value="phone" />
+      <label for="phone">Room ID</label>
+    </div>
+    <div class="buttons-group">
+      <button onclick="/* Search function */">Search</button>
+      <button onclick="clearEntryBox('searchInput')">Clear</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Guest Stay ID</th>
+          <th>Check In Date</th>
+          <th>Check Out Date</th>
+          <th>Balance</th>
+          <th>Is Cancelled?</th>
+          <th>Cancelled Time</th>
+          <th>Guest ID</th>
+          <th>Room ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>
