@@ -29,19 +29,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-.radio-group input[type="radio"] {
-  margin: 10;
-  vertical-align: left;
-  margin-right: 2px;
-}
-
-.radio-group label {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
 .search-section {
   flex: 1;
   margin-right: 20px;
@@ -54,31 +41,24 @@ h1 {
   margin-bottom: 10px;
 }
 input[type="text"],
-input[type="tel"],
-input[type="email"] {
-  width: 60%;
+input[type="number"] {
+  width: 70%;
   padding: 10px;
-  padding-right: 60px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 .buttons-group {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  margin-right: 3rem;
 }
 button {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 10px;
-}
-.clear-individual {
-  position: absolute;
-  right: 10px;
-  background-color: #ffc107;
-  color: #000;
+  margin-right: 2rem;
 }
 table {
   width: 100%;
@@ -96,4 +76,17 @@ td {
 }
 th {
   background-color: #f2f2f2;
+}
+
+div.filter {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+}
+div.filter label {
+  text-align: right;
+  align-self: center;
+}
+div.filter label:after {
+  content: ":";
 }

@@ -20,7 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1300px;
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
 }
@@ -29,11 +29,24 @@ h1 {
   margin-bottom: 20px;
 }
 
+.radio-group input[type="radio"] {
+  margin: 10;
+  vertical-align: left;
+  margin-right: 2px;
+}
+
+.radio-group label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
 .search-section {
   flex: 1;
 }
 .results-section {
-  flex: 2;
+  flex: 0 0 75%;
 }
 .search-item {
   position: relative;
@@ -54,12 +67,10 @@ select {
 input[type="date"] {
   width: 60%;
   padding: 10px;
-  padding-right: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 .buttons-group {
   display: flex;
   justify-content: center;
@@ -71,6 +82,12 @@ button {
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
+}
+.clear-individual {
+  position: absolute;
+  right: 10px;
+  background-color: #ffc107;
+  color: #000;
 }
 table {
   width: 100%;

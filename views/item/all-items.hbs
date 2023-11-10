@@ -8,42 +8,14 @@
 </div>
 <div class="container">
   <div class="search-section">
-    <div class="entry-item">
-      <input
-        type="text"
-        id="searchInput"
-        class="entry-input"
-        placeholder="Search..."
-      />
-    </div>
-    <div class="radio-group">
-      <input
-        type="radio"
-        id="itemId"
-        name="searchType"
-        value="itemID"
-        checked
-      />
+    <div class="filter">
       <label for="itemID">Item ID</label>
-
-      <br />
-
-      <input
-        type="radio"
-        id="description"
-        name="searchType"
-        value="description"
-      />
+      <input type="number" id="itemID" />
       <label for="description">Description</label>
-
-      <br />
-
-      <input type="radio" id="price" name="searchType" value="price" />
-      <label for="price">Price</label>
+      <input type="text" id="description" />
     </div>
     <div class="buttons-group">
-      <button onclick="/* Search function */">Search</button>
-      <button onclick="clearEntryBox('searchInput')">Clear</button>
+      <button>Search</button>
     </div>
   </div>
 
