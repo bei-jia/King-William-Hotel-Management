@@ -1,0 +1,51 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Transactions</h1>
+</div>
+<div class="container">
+  <div class="search-section">
+    <div class="filter">
+      <label for="transactionID">Transaction ID</label>
+      <input type="text" id="transactionID" class="entry-input" />
+
+      <label for="dateTime">Date Time</label>
+      <input type="datetime-local" id="dateTime" class="entry-input" />
+
+      <label for="item">Item</label>
+      <input type="text" id="item" class="entry-input" />
+
+      <label for="reservationID">Reservation Number</label>
+      <input type="number" id="reservationID" class="entry-input" />
+    </div>
+    <div class="buttons-group">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Date and Time</th>
+          <th>Price</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Reservation Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='/manage'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>

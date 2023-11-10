@@ -1,0 +1,45 @@
+<div class="header-container">
+  <img src="/images/king-william-logo.png" class="logo" />
+  <h1>King William's - Add Transaction</h1>
+</div>
+<div class="container">
+  <form>
+    <label for="reservationID"><strong>Reservation Number</strong></label>
+    <div id="reservationID" class="top-gap">
+      <input type="number" class="entry-input" />
+    </div>
+
+    <br />
+
+    <label for="transactionDateTime"><strong>Date and Time</strong></label>
+    <div id="transactionDateTime" class="top-gap">
+      <input type="datetime-local" class="entry-input" />
+    </div>
+
+    <br />
+
+    <label for="itemInformation"><strong>Item Information</strong></label>
+    <div class="flex-input top-gap">
+      <div style="width: 100%;">
+        <label for="itemName">Item Name</label>
+        <select id="itemName" class="top-gap">
+          <option value="1">Item 1</option>
+          <option value="2">Item 2</option>
+        </select>
+      </div>
+      <div style="width: 100%;">
+        <label for="itemQuantity">Item Quantity</label>
+        <input type="number" class="top-gap" />
+      </div>
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
+    <button id="clear" onclick="clearAllEntryBoxes()">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='/employee/all-employees'">Return to
+    Transactions Page</button>
+</div>
+<script src="/js/utility.js"></script>

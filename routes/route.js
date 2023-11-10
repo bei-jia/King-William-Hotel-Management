@@ -15,6 +15,10 @@ const {
   allEmployeesView,
   addEmployeeView,
 } = require("../controllers/employeeController");
+const {
+  allTransactionsView,
+  addTransactionView,
+} = require("../controllers/transactionController");
 
 const router = express.Router();
 
@@ -42,5 +46,9 @@ router.get("/reservation/add-reservation", addReservationView);
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
+
+// Transaction Routes
+router.get("/transaction/all-transactions", allTransactionsView);
+router.get("/transaction/add-transaction", addTransactionView);
 
 module.exports = router;
