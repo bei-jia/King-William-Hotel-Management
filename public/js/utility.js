@@ -8,3 +8,9 @@ function clearAllEntryBoxes() {
     input.value = "";
   });
 }
+
+document.getElementById("clear-all").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  clearAllEntryBoxes();
+});
