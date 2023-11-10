@@ -1,0 +1,97 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Employees</h1>
+</div>
+<div class="container">
+  <div class="search-section" style="margin-left: 3rem;">
+    <div class="filter">
+      <label for="employeeID">Employee ID</label>
+      <input type="text" id="employeeID" class="entry-input" />
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" class="entry-input" />
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" class="entry-input" />
+      <label for="hiredDate">Hired Date</label>
+      <input type="date" id="hiredDate" />
+      <label for="street">Street</label>
+      <input type="text" id="street" class="entry-input" />
+      <label for="city">City</label>
+      <input type="text" id="city" class="entry-input" />
+      <label for="country">Country</label>
+      <input type="text" id="country" class="entry-input" />
+      <label for="postalCode">Postal Code</label>
+      <input type="text" id="postalCode" class="entry-input" />
+      <label for="email">Email</label>
+      <input type="text" id="email" class="entry-input" />
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" class="entry-input" />
+      <label for="isPermanent">Is Permanent?</label>
+      <select class="entry-input" id="isPermanent">
+        <option selected>Any</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <label for="position">Position</label>
+      <select class="entry-input" id="position">
+        <option selected>Any</option>
+        <option value="manager">Manager</option>
+        <option value="assistant">Assistant</option>
+        <option value="employee">Employee</option>
+      </select>
+    </div>
+    <div class="buttons-group">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th width="5%">ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Hired Date</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Country</th>
+          <th width="7%">Postal Code</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th width="5%">Is Permanent?</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+        <tr>
+          <td>
+            <a href="/employee/employee-details.html">1</a>
+          </td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>2020-01-01</td>
+          <td>123 Main St</td>
+          <td>City</td>
+          <td>Country</td>
+          <td>12345</td>
+          <td>
+            john.doe@gmail.com
+          </td>
+          <td>1234567890</td>
+          <td>Yes</td>
+          <td>Manager</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>

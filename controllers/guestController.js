@@ -1,4 +1,4 @@
-const allGuestView = (req, res) => {
+const allGuestsView = (req, res) => {
   const pageTitle = "King William's - All Guests";
   const pageStyle = "/css/guest/all-guests.css";
   res.render("guest/all-guests", {
@@ -16,4 +16,4 @@ const addGuestView = (req, res) => {
   });
 };
 
-module.exports = { allGuestView, addGuestView };
+module.exports = { allGuestsView, addGuestView };
