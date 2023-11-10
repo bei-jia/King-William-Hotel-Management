@@ -23,9 +23,8 @@
     <input
       type="text"
       id="street"
-      class="entry-input"
+      class="top-gap"
       placeholder="Street Address"
-      style="margin-top: 10px;"
     />
     <div id="cityCountry" class="flex-input">
       <input type="text" id="city" class="entry-input" placeholder="City" />
@@ -62,7 +61,7 @@
 
     <label for="reservationInformation"><strong>Reservation Information</strong></label>
     <div id="reservationInformation" class="flex-input top-gap">
-      <div style="width: 100%;">
+      <div class="width-100">
         <label for="checkInDate">Check-in Date</label>
         <input
           type="datetime-local"
@@ -72,7 +71,7 @@
         />
       </div>
 
-      <div style="width: 100%;">
+      <div class="width-100">
         <label for="checkOutDate">Check-out Date</label>
         <input
           type="datetime-local"
@@ -85,7 +84,7 @@
 
     <label for="roomInformation"><strong>Room Information</strong></label>
     <div id="roomInformation" class="flex-input top-gap">
-      <div style="width: 100%;">
+      <div class="width-100">
         <label for="category">Room Category</label>
         <select id="category">
           <option value="single">Single</option>
@@ -93,7 +92,7 @@
           <option value="suite">Suite</option>
         </select>
       </div>
-      <div style="width: 100%;">
+      <div class="width-100">
         <label for="roomNumber">Room Number</label>
         <select id="roomNumber">
           <option disabled selected value>Please select room category first.</option>
