@@ -28,7 +28,8 @@ body {
 }
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+select {
   width: 100%;
   padding: 10px;
   padding-right: 60px;
