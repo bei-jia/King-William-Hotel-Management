@@ -3,7 +3,7 @@ const { loginView } = require("../controllers/loginController");
 const { manageView } = require("../controllers/manageController");
 const {
   allGuestsView,
-  addGuestView,
+  editGuestView,
 } = require("../controllers/guestController");
 const { addItemView, allItemsView } = require("../controllers/itemController");
 const { allRoomsView } = require("../controllers/roomController");
@@ -26,7 +26,7 @@ router.get("/manage", manageView);
 
 // Guest Routes
 router.get("/guest/all-guests", allGuestsView);
-router.get("/guest/add-guest", addGuestView);
+router.get("/guest/edit-guest", editGuestView);
 
 // Item Routes
 router.get("/item/add-item", addItemView);
