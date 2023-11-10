@@ -7,33 +7,23 @@
   <h1>King William's - Add Item</h1>
 </div>
 <div class="container">
-  <div class="search-section">
-    <div class="search-item">
-      <select id="serviceType">
-        <option value="" disabled selected>Item Type</option>
-      </select>
-    </div>
-    <div class="search-item">
-      <select id="roomNo">
-        <option value="" disabled selected>Room No.</option>
-      </select>
-    </div>
-    <div class="search-item">
-      <input type="time" id="serviceTime" placeholder="Service Time" />
-    </div>
-    <div class="search-item">
-      <input type="date" id="serviceDate" placeholder="Service Date" />
-    </div>
+  <form>
+    <label for="description"><strong>Item Description</strong></label>
+    <input
+      type="text"
+      id="description"
+      class="top-gap"
+      placeholder="Item Description"
+    />
 
-    <div class="search-item">
-      <input type="text" id="name" placeholder="Name" />
-    </div>
-    <div class="search-item">
-      <input type="text" id="phone" placeholder="Phone" />
-    </div>
-    <button>Submit</button>
-    <button>Reset</button>
-  </div>
+    <label for="price"><strong>Item Price</strong></label>
+    <input type="number" id="price" class="top-gap" placeholder="Item Price" />
+
+    <br />
+
+    <button type="submit">Submit</button>
+    <button onclick="clearAllEntryBoxes()">Clear All</button>
+  </form>
 </div>
 <div style="text-align: center; margin-top: 20px;">
   <button onclick="window.location.href='main.html'">Return to Main Page</button>

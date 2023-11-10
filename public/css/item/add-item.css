@@ -10,7 +10,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
-  display: flex;
 }
 .header-container {
   display: flex;
@@ -23,29 +22,32 @@ body {
   width: auto;
   margin-right: 15px;
 }
-.search-section {
-  flex: 1;
-  margin-right: 20px;
-}
-.search-item {
-  position: relative;
-  margin-bottom: 10px;
-}
 input[type="text"],
-select,
-input[type="time"],
-input[type="date"] {
+input[type="number"],
+select {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
 button {
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
+}
+
+.flex-input {
+  display: flex;
+  gap: 2rem;
+}
+
+.top-gap {
+  margin-top: 10px;
+}
+
+.width-100 {
+  width: 100%;
 }
