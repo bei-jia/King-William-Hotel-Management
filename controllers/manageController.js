@@ -1,4 +1,4 @@
-const manageController = (req, res) => {
+const manageView = (req, res) => {
   const pageTitle = "King William's - Manage";
   const pageStyle = "/css/manage.css";
   res.render("manage", {
@@ -7,4 +7,4 @@ const manageController = (req, res) => {
   });
 };
 
-module.exports = { manageController };
+module.exports = { manageView };

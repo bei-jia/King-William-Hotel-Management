@@ -7,37 +7,29 @@
   <h1>King William's - Guests</h1>
 </div>
 <div class="container">
-  <div class="search-section">
-    <div class="entry-item">
-      <input
-        type="text"
-        id="searchInput"
-        class="entry-input"
-        placeholder="Search..."
-      />
-    </div>
-    <div class="radio-group">
-      <input
-        type="radio"
-        id="guestID"
-        name="searchType"
-        value="guestID"
-        checked
-      />
+  <div class="search-section" style="margin-left: 3rem;">
+    <div class="filter">
       <label for="guestID">Guest ID</label>
-
-      <input type="radio" id="name" name="searchType" value="name" />
-      <label for="name">Name</label>
-
-      <input type="radio" id="email" name="searchType" value="email" />
+      <input type="text" id="guestID" />
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" />
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" />
+      <label for="street">Street</label>
+      <input type="text" id="street" />
+      <label for="city">City</label>
+      <input type="text" id="city" />
+      <label for="country">Country</label>
+      <input type="text" id="country" />
+      <label for="postalCode">Postal Code</label>
+      <input type="text" id="postalCode" />
       <label for="email">Email</label>
-
-      <input type="radio" id="phone" name="searchType" value="phone" />
+      <input type="email" id="email" />
       <label for="phone">Phone</label>
+      <input type="tel" id="phone" />
     </div>
     <div class="buttons-group">
-      <button onclick="/* Search function */">Search</button>
-      <button onclick="clearEntryBox('searchInput')">Clear</button>
+      <button>Search</button>
     </div>
   </div>
 
@@ -63,7 +55,8 @@
   </div>
 </div>
 <div style="text-align: center; margin-top: 20px;">
-  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+  <button onclick="window.location.href='/manage'" class="footer-button">Return
+    to Manage Page</button>
 </div>
 
 <script src="/js/utility.js"></script>

@@ -29,7 +29,7 @@ body {
 input[type="text"],
 input[type="email"],
 input[type="tel"] {
-  width: 78%;
+  width: 100%;
   padding: 10px;
   padding-right: 60px;
   margin-bottom: 10px;
@@ -43,10 +43,22 @@ button {
   cursor: pointer;
   margin-right: 10px;
 }
+.footer-button {
+  background-color: rgb(185, 185, 185);
+}
 .clear-individual {
   position: absolute;
   top: 0px;
   right: 10px;
   background-color: #ffc107;
   color: #000;
+}
+
+.flex-input {
+  display: flex;
+  gap: 2rem;
+}
+
+.top-gap {
+  margin-top: 10px;
 }

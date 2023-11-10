@@ -29,19 +29,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-.radio-group input[type="radio"] {
-  margin: 10;
-  vertical-align: left;
-  margin-right: 2px;
-}
-
-.radio-group label {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
 .search-section {
   flex: 1;
 }
@@ -64,8 +51,7 @@ select {
   border-radius: 5px;
 }
 
-input[type="date"],
-input[type="number"] {
+input[type="date"] {
   width: 60%;
   padding: 10px;
   margin-bottom: 10px;
@@ -75,7 +61,7 @@ input[type="number"] {
 .buttons-group {
   display: flex;
   justify-content: center;
-  margin-right: 4rem;
+  margin-right: 3rem;
 }
 button {
   padding: 10px 15px;

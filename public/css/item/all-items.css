@@ -20,7 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1800px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
 }
@@ -29,44 +29,20 @@ h1 {
   margin-bottom: 20px;
 }
 
-.radio-group input[type="radio"] {
-  margin: 10;
-  vertical-align: left;
-  margin-right: 2px;
-}
-
-.radio-group label {
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
 .search-section {
   flex: 1;
+  margin-right: 20px;
 }
 .results-section {
-  flex: 0 0 75%;
+  flex: 2;
 }
 .search-item {
   position: relative;
   margin-bottom: 10px;
 }
 input[type="text"],
-input[type="tel"],
-input[type="email"],
-select {
-  width: 60%;
-  padding: 10px;
-  padding-right: 60px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-input[type="date"],
 input[type="number"] {
-  width: 60%;
+  width: 70%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -75,23 +51,17 @@ input[type="number"] {
 .buttons-group {
   display: flex;
   justify-content: center;
-  margin-right: 4rem;
+  margin-right: 3rem;
 }
 button {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 2rem;
 }
 .footer-button {
   background-color: rgb(185, 185, 185);
-}
-.clear-individual {
-  position: absolute;
-  right: 10px;
-  background-color: #ffc107;
-  color: #000;
 }
 table {
   width: 100%;

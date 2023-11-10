@@ -20,7 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1800px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
 }
@@ -46,7 +46,7 @@ h1 {
   flex: 1;
 }
 .results-section {
-  flex: 0 0 75%;
+  flex: 2;
 }
 .search-item {
   position: relative;
@@ -56,7 +56,7 @@ input[type="text"],
 input[type="tel"],
 input[type="email"],
 select {
-  width: 60%;
+  width: 90%;
   padding: 10px;
   padding-right: 60px;
   margin-bottom: 10px;
@@ -64,9 +64,9 @@ select {
   border-radius: 5px;
 }
 
-input[type="date"],
+input[type="datetime-local"],
 input[type="number"] {
-  width: 60%;
+  width: 90%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -94,7 +94,7 @@ button {
   color: #000;
 }
 table {
-  width: 100%;
+  width: 85%;
   border-collapse: collapse;
 }
 table,

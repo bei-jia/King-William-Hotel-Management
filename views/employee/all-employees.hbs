@@ -1,0 +1,102 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Employees</h1>
+</div>
+<div class="container">
+  <div class="search-section" style="margin-left: 3rem;">
+    <div class="filter">
+      <label for="employeeID">Employee ID</label>
+      <input type="text" id="employeeID" />
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" />
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" />
+      <label for="hiredDate">Hired Date</label>
+      <input type="date" id="hiredDate" />
+      <label for="street">Street</label>
+      <input type="text" id="street" />
+      <label for="city">City</label>
+      <input type="text" id="city" />
+      <label for="country">Country</label>
+      <input type="text" id="country" />
+      <label for="postalCode">Postal Code</label>
+      <input type="text" id="postalCode" />
+      <label for="email">Email</label>
+      <input type="text" id="email" />
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" />
+      <label for="isPermanent">Is Permanent?</label>
+      <select id="isPermanent">
+        <option selected>Any</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <label for="position">Position</label>
+      <select id="position">
+        <option selected>Any</option>
+        <option value="manager">Manager</option>
+        <option value="assistant">Assistant</option>
+        <option value="employee">Employee</option>
+      </select>
+    </div>
+    <div class="buttons-group">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th width="5%">ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Hired Date</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Country</th>
+          <th width="7%">Postal Code</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th width="5%">Is Permanent?</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+        <tr>
+          <td>
+            <a href="/employee/employee-details.html">1</a>
+          </td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>2020-01-01</td>
+          <td>123 Main St</td>
+          <td>City</td>
+          <td>Country</td>
+          <td>12345</td>
+          <td>
+            john.doe@gmail.com
+          </td>
+          <td>1234567890</td>
+          <td>Yes</td>
+          <td>Manager</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='/manage'" class="footer-button">Return
+    to Manage Page</button>
+  <button
+    onclick="window.location.href='add-employee'"
+    class="footer-button"
+  >Add Employee</button>
+</div>
+
+<script src="/js/utility.js"></script>

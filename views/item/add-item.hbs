@@ -1,0 +1,34 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Add Item</h1>
+</div>
+<div class="container">
+  <form>
+    <label for="description"><strong>Item Description</strong></label>
+    <input
+      type="text"
+      id="description"
+      class="top-gap"
+      placeholder="Item Description"
+    />
+
+    <label for="price"><strong>Item Price</strong></label>
+    <input type="number" id="price" class="top-gap" placeholder="Item Price" />
+
+    <br />
+
+    <button type="submit">Submit</button>
+    <button id="clear-all">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button
+    onclick="window.location.href='/item/all-items'"
+    class="footer-button"
+  >Return to Items Page</button>
+</div>
+<script src="/js/utility.js"></script>

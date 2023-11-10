@@ -1,6 +1,6 @@
 <div class="header-container">
   <img src="/images/king-william-logo.png" class="logo" />
-  <h1>King William's - Add Reservation</h1>
+  <h1>King William's - Add Employee</h1>
 </div>
 <div class="container">
   <form>
@@ -19,14 +19,13 @@
         placeholder="Last Name"
       />
     </div>
+    <label for="hiredDate"><strong>Hired Date</strong></label>
+    <div id="hiredDate" class="top-gap">
+      <input type="date" class="entry-input" />
+    </div>
     <label for="address"><strong>Address</strong></label>
-    <input
-      type="text"
-      id="street"
-      class="top-gap"
-      placeholder="Street Address"
-    />
-    <div id="cityCountry" class="flex-input">
+    <input type="text" id="address" class="top-gap" placeholder="Street" />
+    <div class="flex-input">
       <input type="text" id="city" class="entry-input" placeholder="City" />
       <input
         type="text"
@@ -58,58 +57,34 @@
         placeholder="Phone Number (ex. 9051231234)"
       />
     </div>
-
-    <label for="reservationInformation"><strong>Reservation Information</strong></label>
-    <div id="reservationInformation" class="flex-input top-gap">
+    <label for="employment"><strong>Employment</strong></label>
+    <div id="employment" class="flex-input top-gap">
       <div class="width-100">
-        <label for="checkInDate">Check-in Date</label>
-        <input
-          type="date"
-          id="checkInDate"
-          class="entry-input"
-          placeholder="Check-in Date"
-        />
-      </div>
-
-      <div class="width-100">
-        <label for="checkOutDate">Check-out Date</label>
-        <input
-          type="date"
-          id="checkOutDate"
-          class="entry-input"
-          placeholder="Check-in Date"
-        />
-      </div>
-    </div>
-
-    <label for="roomInformation"><strong>Room Information</strong></label>
-    <div id="roomInformation" class="flex-input top-gap">
-      <div class="width-100">
-        <label for="category">Room Category</label>
-        <select id="category">
-          <option value="single">Single</option>
-          <option value="double">Double</option>
-          <option value="suite">Suite</option>
+        <label for="type">Employment Type</label>
+        <select id="type" class="top-gap">
+          <option value="permanent">Permanent</option>
+          <option value="partTime">Temporary</option>
         </select>
       </div>
       <div class="width-100">
-        <label for="roomNumber">Room Number</label>
-        <select id="roomNumber">
-          <option disabled selected value>Please select room category first.</option>
+        <label for="position">Position</label>
+        <select id="position" class="top-gap">
+          <option value="manager">Manager</option>
+          <option value="assistant">Assistant</option>
+          <option value="employee">Employee</option>
         </select>
       </div>
     </div>
 
     <br />
-
     <button type="submit">Submit</button>
     <button id="clear-all">Clear All</button>
   </form>
 </div>
 <div style="text-align: center; margin-top: 20px;">
   <button
-    onclick="window.location.href='/reservation/all-reservations'"
+    onclick="window.location.href='/employee/all-employees'"
     class="footer-button"
-  >Return to Reservation Page</button>
+  >Return to Employees Page</button>
 </div>
 <script src="/js/utility.js"></script>
