@@ -84,6 +84,9 @@ button {
   cursor: pointer;
   margin-right: 10px;
 }
+.footer-button {
+  background-color: rgb(185, 185, 185);
+}
 .clear-individual {
   position: absolute;
   right: 10px;

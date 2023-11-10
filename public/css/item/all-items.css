@@ -60,6 +60,9 @@ button {
   cursor: pointer;
   margin-right: 2rem;
 }
+.footer-button {
+  background-color: rgb(185, 185, 185);
+}
 table {
   width: 100%;
   border-collapse: collapse;
