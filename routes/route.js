@@ -5,11 +5,12 @@ const {
   allGuestView,
   addGuestView,
 } = require("../controllers/guestController");
-const {
-  addGuestStayView,
-  allGuestStaysView,
-} = require("../controllers/guestStayController");
 const { addItemView, allItemsView } = require("../controllers/itemController");
+const { allRoomsView } = require("../controllers/roomController");
+const {
+  allReservationView,
+  addReservationView,
+} = require("../controllers/reservationController");
 
 const router = express.Router();
 
@@ -23,12 +24,15 @@ router.get("/manage", manageView);
 router.get("/guest/all-guests", allGuestView);
 router.get("/guest/add-guest", addGuestView);
 
-// Guest Stay Routes
-router.get("/guest-stay/add-guest-stay", addGuestStayView);
-router.get("/guest-stay/all-guest-stays", allGuestStaysView);
-
 // Item Routes
 router.get("/item/add-item", addItemView);
 router.get("/item/all-items", allItemsView);
+
+// Room Routes
+router.get("/room/all-rooms", allRoomsView);
+
+// Reservation Routes
+router.get("/reservation/all-reservations", allReservationView);
+router.get("/reservation/add-reservation", addReservationView);
 
 module.exports = router;

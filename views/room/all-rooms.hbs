@@ -1,0 +1,66 @@
+<div class="header-container">
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
+  <h1>King William's - Rooms</h1>
+</div>
+<div class="container">
+  <div class="search-section">
+    <div class="filter">
+      <label for="roomID">Room Number</label>
+      <input
+        type="text"
+        id="roomID"
+        class="entry-input"
+        placeholder="e.g. 101"
+      />
+      <label for="category">Category</label>
+      <input
+        type="text"
+        id="category"
+        class="entry-input"
+        placeholder="e.g. Single"
+      />
+      <label for="occupied">Occupied</label>
+      <select class="entry-input" id="occupied">
+        <option selected>Any</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <label for="status">Status</label>
+      <select class="entry-input" id="occupied">
+        <option selected>Any</option>
+        <option value="true">Everything is good</option>
+        <option value="false">Something is wrong</option>
+      </select>
+    </div>
+    <div class="buttons-group">
+      <button>Search</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Category</th>
+          <th>Occupied</th>
+          <th>Rate</th>
+          <th>Seasonal Rate</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Place holder for abstracted records -->
+      </tbody>
+    </table>
+  </div>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="window.location.href='main.html'">Return to Main Page</button>
+</div>
+
+<script src="/js/utility.js"></script>

@@ -2,7 +2,7 @@ body {
   background: url("/images/pexels-pixabay-258154.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Montserrat";
+  font-family: "Arial", sans-serif;
   font-style: normal;
   line-height: normal;
   display: grid;
