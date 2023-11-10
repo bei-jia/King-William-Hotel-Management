@@ -20,7 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
 }
@@ -44,10 +44,9 @@ h1 {
 
 .search-section {
   flex: 1;
-  margin-right: 20px;
 }
 .results-section {
-  flex: 2;
+  flex: 0 0 75%;
 }
 .search-item {
   position: relative;
@@ -55,7 +54,8 @@ h1 {
 }
 input[type="text"],
 input[type="tel"],
-input[type="email"] {
+input[type="email"],
+select {
   width: 60%;
   padding: 10px;
   padding-right: 60px;
@@ -63,9 +63,18 @@ input[type="email"] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+input[type="date"] {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 .buttons-group {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  margin-right: 4rem;
 }
 button {
   padding: 10px 15px;
@@ -96,4 +105,17 @@ td {
 }
 th {
   background-color: #f2f2f2;
+}
+
+div.filter {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: 5px;
+}
+div.filter label {
+  text-align: right;
+  align-self: center;
+}
+div.filter label:after {
+  content: ":";
 }
