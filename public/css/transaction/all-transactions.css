@@ -64,7 +64,7 @@ select {
   border-radius: 5px;
 }
 
-input[type="datetime-local"],
+input[type="date"],
 input[type="number"] {
   width: 90%;
   padding: 10px;
@@ -94,7 +94,7 @@ button {
   color: #000;
 }
 table {
-  width: 85%;
+  width: 90%;
   border-collapse: collapse;
 }
 table,
@@ -122,4 +122,9 @@ div.filter label {
 }
 div.filter label:after {
   content: ":";
+}
+.navbar {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

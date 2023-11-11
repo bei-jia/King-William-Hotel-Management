@@ -6,6 +6,15 @@
   />
   <h1>King William's - Employees</h1>
 </div>
+
+<div class="navbar">
+  <button onclick="window.location.href='/manage'" class="footer-button">Return
+    to Manage Page</button>
+  <button
+    onclick="window.location.href='add-employee'"
+    class="footer-button"
+  >Add Employee</button>
+</div>
 <div class="container">
   <div class="search-section" style="margin-left: 3rem;">
     <div class="filter">
@@ -52,17 +61,17 @@
     <table>
       <thead>
         <tr>
-          <th width="5%">ID</th>
+          <th>ID</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Hired Date</th>
           <th>Street</th>
           <th>City</th>
           <th>Country</th>
-          <th width="7%">Postal Code</th>
+          <th>Postal Code</th>
           <th>Email</th>
           <th>Phone</th>
-          <th width="5%">Is Permanent?</th>
+          <th>Is Permanent?</th>
           <th>Position</th>
         </tr>
       </thead>
@@ -89,14 +98,6 @@
       </tbody>
     </table>
   </div>
-</div>
-<div style="text-align: center; margin-top: 20px;">
-  <button onclick="window.location.href='/manage'" class="footer-button">Return
-    to Manage Page</button>
-  <button
-    onclick="window.location.href='add-employee'"
-    class="footer-button"
-  >Add Employee</button>
 </div>
 
 <script src="/js/utility.js"></script>
