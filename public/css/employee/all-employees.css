@@ -20,7 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 1800px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
 }
@@ -80,7 +80,7 @@ button {
   color: #000;
 }
 table {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
 }
 table,
@@ -108,4 +108,10 @@ div.filter label {
 }
 div.filter label:after {
   content: ":";
+}
+
+.navbar {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
