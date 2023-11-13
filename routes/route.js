@@ -21,7 +21,7 @@ const {
 } = require("../controllers/transactionController");
 
 const router = express.Router();
-
+const roomController = require("../controllers/roomController");
 // Login Route
 router.get("/login", loginView);
 
@@ -36,8 +36,6 @@ router.get("/guest/edit-guest", editGuestView);
 router.get("/item/add-item", addItemView);
 router.get("/item/all-items", allItemsView);
 
-// Room Routes
-router.get("/room/all-rooms", allRoomsView);
 
 // Reservation Routes
 router.get("/reservation/all-reservations", allReservationView);
@@ -50,5 +48,9 @@ router.get("/employee/add-employee", addEmployeeView);
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);
 router.get("/transaction/add-transaction", addTransactionView);
+
+// Room Routes
+router.get("/room/all-rooms", roomController.allRoomsView);
+router.get("/room/search-rooms", roomController.searchRooms);
 
 module.exports = router;

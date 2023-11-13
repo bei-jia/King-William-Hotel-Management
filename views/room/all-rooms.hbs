@@ -1,3 +1,5 @@
+<!-- KING_WILLIAM_PROJECT/views/room/all-rooms.hbs -->
+
 <div class="header-container">
   <img
     src="/images/king-william-logo.png"
@@ -12,27 +14,30 @@
 </div>
 <div class="container">
   <div class="search-section">
-    <div class="filter">
-      <label for="roomID">Room Number</label>
-      <input type="text" id="roomID" class="entry-input" />
-      <label for="category">Category</label>
-      <input type="text" id="category" class="entry-input" />
-      <label for="occupied">Occupied</label>
-      <select class="entry-input" id="occupied">
-        <option selected>Any</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-      <label for="status">Status</label>
-      <select class="entry-input" id="occupied">
-        <option selected>Any</option>
-        <option value="true">Everything is good</option>
-        <option value="false">Something is wrong</option>
-      </select>
-    </div>
-    <div class="buttons-group">
-      <button>Search</button>
-    </div>
+    <form action="/room/search-rooms" method="get">
+      <div class="filter">
+        <label for="roomID">Room Number</label>
+        <input type="text" id="roomID" name="roomID" class="entry-input" />
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" class="entry-input" />
+        <label for="occupied">Occupied</label>
+        <select class="entry-input" id="occupied" name="occupied">
+          <option value="">Any</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <label for="status">Status</label>
+        <select class="entry-input" id="status" name="status">
+          <option value="">Any</option>
+          <option value="Everything is in good condition">Everything is good</option>
+          <option value="Room chair is damaged">Something is wrong</option>
+        </select>
+      </div>
+      <div class="buttons-group">
+        <button type="submit">Search</button>
+        <button type="button" id="clear-all">Clear</button>
+      </div>
+    </form>
   </div>
 
   <div class="results-section">
@@ -48,10 +53,19 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Place holder for abstracted records -->
+                {{#each rooms}}
+                    <tr>
+                        <td>{{this.rm_id}}</td>
+                        <td>{{this.rm_category}}</td>
+                        <td>{{this.rm_is_occupied}}</td>
+                        <td>{{this.rm_base_rate}}</td>
+                        <td>{{this.rm_seasonal_rate}}</td>
+                        <td>{{this.rm_status_desc}}</td>
+                    </tr>
+                {{/each}}
       </tbody>
     </table>
   </div>
 </div>
 
-<script src="/js/utility.js"></script>
+<script src="/js/utility.js"></script>  
