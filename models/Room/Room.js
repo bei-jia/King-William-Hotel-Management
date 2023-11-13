@@ -17,8 +17,7 @@ class Room {
 
         if (filters.roomNumber) {
             conditions.push("r.rm_id = ?");
-            values.push(filters.roomNumber);
-        }
+            values.push(parseInt(filters.roomNumber)); // 
         if (filters.category) {
             conditions.push("rc.rm_category = ?");
             values.push(filters.category);

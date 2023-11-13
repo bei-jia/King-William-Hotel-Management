@@ -11,6 +11,9 @@ const allRoomsView = (req, res) => {
     });
 };
 
+// roomController.js
+
+
 const searchRooms = async (req, res) => {
     try {
         const rooms = await Room.getByFilters(req.query);
