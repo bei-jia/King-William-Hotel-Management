@@ -28,8 +28,13 @@ class Room {
             values.push(filters.occupied);
         }
         if (filters.status) {
-            conditions.push("rs.rm_status_desc = ?");
-            values.push(filters.status);
+            if (filters.status === 'Something is wrong') {
+                conditions.push("rs.rm_status_desc != ?");
+                values.push('Everything is in good condition');
+            } else {
+                conditions.push("rs.rm_status_desc = ?");
+                values.push(filters.status);
+            }
         }
 
         if (conditions.length) {
