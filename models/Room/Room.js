@@ -17,7 +17,13 @@ class Room {
 
         if (filters.roomNumber) {
             conditions.push("r.rm_id = ?");
-            values.push(parseInt(filters.roomNumber)); // 
+            values.push(parseInt(filters.roomNumber));
+    
+            console.log("Query with room number:", query + " WHERE " + conditions.join(" AND "), values);
+    
+            const [rooms] = await db.promise().query(query + " WHERE " + conditions.join(" AND "), values);
+            return rooms;
+        }
         if (filters.category) {
             conditions.push("rc.rm_category = ?");
             values.push(filters.category);

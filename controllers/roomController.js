@@ -1,4 +1,3 @@
-// KING_WILLIAM_PROJECT/controllers/roomController.js
 
 const pool = require('../database');
 const Room = require('../models/Room/Room');
@@ -16,6 +15,13 @@ const allRoomsView = (req, res) => {
 
 const searchRooms = async (req, res) => {
     try {
+        const filters = {
+            roomNumber: req.query.roomNumber,
+            category: req.query.category,
+            occupied: req.query.occupied,
+            status: req.query.status
+        };
+        console.log("Query parameters received:", req.query);
         const rooms = await Room.getByFilters(req.query);
         res.render("room/all-rooms", {
             pageTitle: "King William's - Rooms",
