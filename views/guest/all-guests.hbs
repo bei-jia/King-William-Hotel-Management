@@ -13,29 +13,39 @@
 </div>
 <div class="container">
   <div class="search-section" style="margin-left: 3rem;">
-    <div class="filter">
-      <label for="guestID">Guest ID</label>
-      <input type="text" id="guestID" />
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" />
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" />
-      <label for="street">Street</label>
-      <input type="text" id="street" />
-      <label for="city">City</label>
-      <input type="text" id="city" />
-      <label for="country">Country</label>
-      <input type="text" id="country" />
-      <label for="postalCode">Postal Code</label>
-      <input type="text" id="postalCode" />
-      <label for="email">Email</label>
-      <input type="email" id="email" />
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" />
-    </div>
-    <div class="buttons-group">
-      <button>Search</button>
-    </div>
+    <form action="/guest/all-guests" method="get" class="search-section">
+      <div class="filter">
+        <label for="guest_id">Guest ID</label>
+        <input type="text" name="guest_id" id="guestID" />
+
+        <label for="guest_fname">First Name</label>
+        <input type="text" name="guest_fname" id="firstName" />
+
+        <label for="guest_lname">Last Name</label>
+        <input type="text" name="guest_lname" id="lastName" />
+
+        <label for="guest_street">Street</label>
+        <input type="text" name="guest_street" id="street" />
+
+        <label for="guest_city">City</label>
+        <input type="text" name="guest_city" id="city" />
+
+        <label for="guest_country">Country</label>
+        <input type="text" name="guest_country" id="country" />
+
+        <label for="guest_postal_code">Postal Code</label>
+        <input type="text" name="guest_postal_code" id="postalCode" />
+
+        <label for="guest_email">Email</label>
+        <input type="email" name="guest_email" id="email" />
+
+        <label for="guest_phone">Phone</label>
+        <input type="tel" name="guest_phone" id="phone" />
+      </div>
+      <div class="buttons-group">
+        <button type="submit">Search</button>
+      </div>
+    </form>
   </div>
 
   <div class="results-section">
@@ -51,10 +61,24 @@
           <th>Postal Code</th>
           <th>Email</th>
           <th>Phone</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Place holder for abstracted records -->
+        {{#each guests}}
+          <tr>
+            <td>{{guest_id}}</td>
+            <td>{{guest_fname}}</td>
+            <td>{{guest_lname}}</td>
+            <td>{{guest_street}}</td>
+            <td>{{guest_city}}</td>
+            <td>{{guest_country}}</td>
+            <td>{{guest_postal_code}}</td>
+            <td>{{guest_email}}</td>
+            <td>{{guest_phone}}</td>
+            <td><a href="/guest/edit-guest/{{this.guest_id}}">Edit</a></td>
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>
