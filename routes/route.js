@@ -32,7 +32,7 @@ router.get("/manage", manageView);
 // Guest Routes
 router.get("/guest/all-guests", allGuestsView);
 router.get("/guest/edit-guest/:id", editGuestView);
-router.post("/guest/edit-guest/:id", editGuest);;
+router.post("/guest/update-guest/:id", editGuest);
 
 // Item Routes
 router.get("/item/add-item", addItemView);
