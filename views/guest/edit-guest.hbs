@@ -1,63 +1,92 @@
+<!-- edit-guest.hbs -->
+
 <div class="header-container">
   <img src="/images/king-william-logo.png" class="logo" />
   <h1>King William's - Edit Guest</h1>
 </div>
 <div class="container">
-  <form>
+  
+  <form action="/guest/update-guest/{{guest.guest_id}}" method="post">
     <label for="fullName"><strong>Full Name</strong></label>
     <div id="fullName" class="flex-input top-gap">
       <input
         type="text"
+        name="guest_fname"
         id="firstName"
         class="entry-input"
         placeholder="First Name"
+        value="{{guest.guest_fname}}"
       />
       <input
         type="text"
+        name="guest_lname"
         id="lastName"
         class="entry-input"
         placeholder="Last Name"
+        value="{{guest.guest_lname}}"
       />
     </div>
     <label for="address"><strong>Address</strong></label>
-    <input type="text" id="address" class="top-gap" placeholder="Street" />
+    <input
+      type="text"
+      name="guest_street"
+      id="address"
+      class="top-gap"
+      placeholder="Street"
+      value="{{guest.guest_street}}"
+    />
     <div class="flex-input">
-      <input type="text" id="city" class="entry-input" placeholder="City" />
       <input
         type="text"
+        name="guest_city"
+        id="city"
+        class="entry-input"
+        placeholder="City"
+        value="{{guest.guest_city}}"
+      />
+      <input
+        type="text"
+        name="guest_country"
         id="country"
         class="entry-input"
         placeholder="Country"
+        value="{{guest.guest_country}}"
       />
     </div>
     <div class="entry-item">
       <input
         type="text"
+        name="guest_postal_code"
         id="postalCode"
         class="entry-input"
         placeholder="Postal Code"
+        value="{{guest.guest_postal_code}}"
       />
     </div>
     <label for="contactInformation"><strong>Contact Information</strong></label>
     <div id="contactInformation" class="flex-input top-gap">
       <input
         type="email"
+        name="guest_email"
         id="email"
         class="entry-input"
         placeholder="Email Address"
+        value="{{guest.guest_email}}"
       />
       <input
         type="tel"
+        name="guest_phone"
         id="phone"
         class="entry-input"
-        placeholder="Phone Number (ex. 9051231234)"
+        placeholder="Phone Number"
+        value="{{guest.guest_phone}}"
       />
     </div>
-
     <br />
     <button type="submit">Submit</button>
   </form>
 </div>
+
 <div style="text-align: center; margin-top: 20px;">
   <button
     onclick="window.location.href='/guest/all-guests'"
