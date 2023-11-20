@@ -1,14 +1,22 @@
 <div class="header-container">
-  <img src="/images/king-william-logo.png" alt="King William's Logo" class="logo" />
+  <img
+    src="/images/king-william-logo.png"
+    alt="King William's Logo"
+    class="logo"
+  />
   <h1>King William's - Reservations</h1>
 </div>
 <div class="navbar">
-  <button onclick="window.location.href='/manage'" class="footer-button">Return to Main Page</button>
-  <button onclick="window.location.href='add-reservation'" class="footer-button">Add Reservation</button>
+  <button onclick="window.location.href='/manage'" class="footer-button">Return
+    to Main Page</button>
 </div>
 <div class="container">
   <div class="search-section">
-    <form action="/reservation/all-reservations" method="get" class="search-section">
+    <form
+      action="/reservation/all-reservations"
+      method="get"
+      class="search-section"
+    >
       <div class="filter">
         <label for="reservationID">Reservation Number</label>
         <input type="text" name="guest_stay_id" id="reservationID" />
@@ -39,15 +47,13 @@
     <table>
       <thead>
         <tr>
-          <th>Reservation Number</th>
+          <th width="10%">Reservation Number</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Room Number</th>
           <th>Check-in Date</th>
           <th>Check-out Date</th>
           <th>Balance</th>
-          <th>Is Cancelled?</th>
-          <th>Cancelled Time</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -62,9 +68,10 @@
             <td>{{formatDate guest_stay_check_in_date}}</td>
             <td>{{formatDate guest_stay_check_out_date}}</td>
             <td>{{guest_stay_balance}}</td>
-            <td>{{convertToYesNo guest_stay_is_cancelled}} </td>
-            <td>{{guest_stay_cancelled_time}}</td>
-            <td><button class="invoice" onclick="window.location.href='/invoice/{{this.guest_stay_id}}'">Generate Invoice</button></td>
+            <td><button
+                class="invoice"
+                onclick="window.location.href='/invoice/{{this.guest_stay_id}}'"
+              >Generate Invoice</button></td>
           </tr>
         {{/each}}
       </tbody>

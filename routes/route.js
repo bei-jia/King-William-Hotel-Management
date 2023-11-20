@@ -1,8 +1,13 @@
-const employeeController = require('../controllers/employeeController');
+const employeeController = require("../controllers/employeeController");
 const express = require("express");
 const { loginView } = require("../controllers/loginController");
 const { manageView } = require("../controllers/manageController");
-const { allGuestsView, editGuestView, editGuest } = require("../controllers/guestController");
+const {
+  allGuestsView,
+  editGuestView,
+  editGuest,
+  addGuestView,
+} = require("../controllers/guestController");
 const { addItemView, allItemsView } = require("../controllers/itemController");
 const { allRoomsView } = require("../controllers/roomController");
 const {
@@ -32,6 +37,7 @@ router.get("/manage", manageView);
 router.get("/guest/all-guests", allGuestsView);
 router.get("/guest/edit-guest/:id", editGuestView);
 router.post("/guest/update-guest/:id", editGuest);
+router.get("/guest/add-guest", addGuestView);
 
 // Item Routes
 router.get("/item/add-item", addItemView);
@@ -40,7 +46,6 @@ router.get("/item/all-items", allItemsView);
 // Reservation Routes
 router.get("/reservation/all-reservations", allReservationView);
 router.get("/reservation/add-reservation", addReservationView);
-
 
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
