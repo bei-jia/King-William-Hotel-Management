@@ -16,46 +16,56 @@
   >Add Employee</button>
 </div>
 <div class="container">
-  <div class="search-section" style="margin-left: 3rem;">
-    <div class="filter">
-      <label for="employeeID">Employee ID</label>
-      <input type="text" id="employeeID" />
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" />
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" />
-      <label for="hiredDate">Hired Date</label>
-      <input type="date" id="hiredDate" />
-      <label for="street">Street</label>
-      <input type="text" id="street" />
-      <label for="city">City</label>
-      <input type="text" id="city" />
-      <label for="country">Country</label>
-      <input type="text" id="country" />
-      <label for="postalCode">Postal Code</label>
-      <input type="text" id="postalCode" />
-      <label for="email">Email</label>
-      <input type="text" id="email" />
-      <label for="phone">Phone</label>
-      <input type="text" id="phone" />
-      <label for="isPermanent">Is Permanent?</label>
-      <select id="isPermanent">
-        <option selected>Any</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-      <label for="position">Position</label>
-      <select id="position">
-        <option selected>Any</option>
-        <option value="manager">Manager</option>
-        <option value="assistant">Assistant</option>
-        <option value="employee">Employee</option>
-      </select>
+  <form id="searchForm" action="/employee/all-employees" method="get">
+    <div class="search-section" style="margin-left: 3rem;">
+      <div class="filter">
+        <label for="emp_id">Employee ID</label>
+        <input type="text" name="emp_id" id="employeeID" />
+        <label for="emp_fname">First Name</label>
+        <input type="text" name="emp_fname" id="firstName" />
+        <label for="emp_lname">Last Name</label>
+        <input type="text" name="emp_lname" id="lastName" />
+        <label for="emp_hire_date">Hired Date</label>
+        <input type="date" name="emp_hire_date" id="hiredDate" />
+        <label for="emp_street">Street</label>
+        <input type="text" name="emp_street" id="street" />
+        <label for="emp_city">City</label>
+        <input type="text" name="emp_city" id="city" />
+        <label for="emp_country">Country</label>
+        <input type="text" name="emp_country" id="country" />
+        <label for="emp_postal_code">Postal Code</label>
+        <input type="text" name="emp_postal_code" id="postalCode" />
+        <label for="emp_email">Email</label>
+        <input type="text" name="emp_email" id="email" />
+        <label for="emp_phone">Phone</label>
+        <input type="text" name="emp_phone" id="phone" />
+        <label for="emp_is_permanent">Is Permanent?</label>
+        <select name="emp_is_permanent" id="isPermanent">
+          <option value="">Any</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <label for="position_id">Position</label>
+        <select id="position" name="position_id" class="top-gap">
+          <option value="">Any</option> 
+          <option value="1">Manager</option> 
+          <option value="2">Assistant</option>
+          <option value="3">Head Concierge</option>
+          <option value="4">Concierge</option>
+          <option value="5">Receptionist</option>
+          <option value="6">Housekeeper</option>
+          <option value="7">Maintenance Worker</option>
+          <option value="8">Chef</option>
+          <option value="9">Kitchen Assistant</option>
+          <option value="10">Wait Staff</option>
+          <option value="11">Doorman</option>
+        </select>
+      </div>
+      <div class="buttons-group">
+        <button type="submit">Search</button>
+      </div>
     </div>
-    <div class="buttons-group">
-      <button>Search</button>
-    </div>
-  </div>
+  </form>
 
   <div class="results-section">
     <table>

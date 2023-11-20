@@ -1,3 +1,4 @@
+const employeeController = require('../controllers/employeeController');
 const express = require("express");
 const { loginView } = require("../controllers/loginController");
 const { manageView } = require("../controllers/manageController");
@@ -14,6 +15,7 @@ const {
 const {
   allEmployeesView,
   addEmployeeView,
+  addEmployee,
 } = require("../controllers/employeeController");
 const {
   allTransactionsView,
@@ -46,6 +48,8 @@ router.get("/reservation/add-reservation", addReservationView);
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
+router.post("/employee/add-employee", addEmployee);
+//router.get('/employee/search', employeeController.searchEmployees);
 
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);
