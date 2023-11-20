@@ -12,7 +12,7 @@ class Reservation {
         values.push(criteria[key]);
       }
     });
-
+    
     if (conditions.length) {
       query += ' WHERE ' + conditions.join(' AND ');
     }
