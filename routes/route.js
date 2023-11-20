@@ -49,7 +49,6 @@ router.get("/reservation/add-reservation", addReservationView);
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
 router.post("/employee/add-employee", addEmployee);
-//router.get('/employee/search', employeeController.searchEmployees);
 
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);

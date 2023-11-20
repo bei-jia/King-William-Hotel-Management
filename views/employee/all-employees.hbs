@@ -86,25 +86,24 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Place holder for abstracted records -->
-        <tr>
-          <td>
-            <a href="/employee/employee-details.html">1</a>
-          </td>
-          <td>John</td>
-          <td>Doe</td>
-          <td>2020-01-01</td>
-          <td>123 Main St</td>
-          <td>City</td>
-          <td>Country</td>
-          <td>12345</td>
-          <td>
-            john.doe@gmail.com
-          </td>
-          <td>1234567890</td>
-          <td>Yes</td>
-          <td>Manager</td>
-        </tr>
+        {{#each employees}}
+          <tr>
+            <td>
+              <a href="/employee/details/{{this.emp_id}}">{{this.emp_id}}</a>
+            </td>
+            <td>{{this.emp_fname}}</td>
+            <td>{{this.emp_lname}}</td>
+            <td>{{this.emp_hire_date}}</td>
+            <td>{{this.emp_street}}</td>
+            <td>{{this.emp_city}}</td>
+            <td>{{this.emp_country}}</td>
+            <td>{{this.emp_postal_code}}</td>
+            <td>{{this.emp_email}}</td>
+            <td>{{this.emp_phone}}</td>
+            <td>{{#if this.emp_is_permanent}}Yes{{else}}No{{/if}}</td>
+            <td>{{lookup ../positions this.position_id}}</td> 
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>
