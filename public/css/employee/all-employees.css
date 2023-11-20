@@ -23,6 +23,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
+  overflow-x: auto;
 }
 h1 {
   text-align: center;
@@ -80,7 +81,7 @@ button {
   color: #000;
 }
 table {
-  width: 95%;
+  width: 100%;
   border-collapse: collapse;
 }
 table,
@@ -92,6 +93,7 @@ th,
 td {
   padding: 10px;
   text-align: left;
+  white-space: nowrap;
 }
 th {
   background-color: #f2f2f2;
