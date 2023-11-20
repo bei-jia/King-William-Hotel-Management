@@ -5,6 +5,9 @@ const path = require("path");
 const helper = require("./helper");
 
 
+const employeeRoutes = require("./routes/route"); 
+const routes = require("./routes/route"); 
+
 dotenv.config({ path: "./process.env" });
 
 const PORT = process.env.PORT || 5000;
@@ -32,6 +35,7 @@ app.use((req, res, next) => {
   res.locals.formatDate = helper.formatDate;
   next();
 });
+app.use("/employee", employeeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

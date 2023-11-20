@@ -1,12 +1,23 @@
+const employeeController = require('../controllers/employeeController');
 const express = require("express");
 const { loginView } = require("../controllers/loginController");
 const { manageView } = require("../controllers/manageController");
 const { allGuestsView, editGuestView, editGuest } = require("../controllers/guestController");
 const { addItemView, allItemsView } = require("../controllers/itemController");
 const { allRoomsView } = require("../controllers/roomController");
-const { allReservationView, addReservationView } = require("../controllers/reservationController");
-const { allEmployeesView, addEmployeeView } = require("../controllers/employeeController");
-const { allTransactionsView, addTransactionView } = require("../controllers/transactionController");
+const {
+  allReservationView,
+  addReservationView,
+} = require("../controllers/reservationController");
+const {
+  allEmployeesView,
+  addEmployeeView,
+  addEmployee,
+} = require("../controllers/employeeController");
+const {
+  allTransactionsView,
+  addTransactionView,
+} = require("../controllers/transactionController");
 const { invoiceView } = require("../controllers/invoiceController");
 
 const router = express.Router();
@@ -34,6 +45,7 @@ router.get("/reservation/add-reservation", addReservationView);
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
+router.post("/employee/add-employee", addEmployee);
 
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);
