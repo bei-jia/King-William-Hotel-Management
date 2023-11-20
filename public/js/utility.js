@@ -1,4 +1,6 @@
 
+
+
 function clearEntryBox(elementId) {
   document.getElementById(elementId).value = "";
 }
@@ -15,12 +17,8 @@ document.getElementById("clear-all").addEventListener("click", function (e) {
   clearAllEntryBoxes();
 });
 
-function convertTinyInt(tinyInt) {
-  if (tinyInt = 0)
-  {
-    return "No";
-  }
-  else if (tynyIny = 1) {
-    return "Yes";
-  }
-}
+
+
+
+
+

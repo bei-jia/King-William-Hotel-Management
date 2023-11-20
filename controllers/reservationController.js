@@ -16,6 +16,8 @@ const allReservationView = (req, res) => {
     .catch(err => res.status(500).send(err));
 };
 
+
+
 const addReservationView = (req, res) => {
   const pageTitle = "King William's - Add Reservation";
   const pageStyle = "/css/reservation/add-reservation.css";

@@ -1,25 +1,12 @@
 const express = require("express");
 const { loginView } = require("../controllers/loginController");
 const { manageView } = require("../controllers/manageController");
-const {
-  allGuestsView,
-  editGuestView,
-  editGuest,
-} = require("../controllers/guestController");
+const { allGuestsView, editGuestView, editGuest } = require("../controllers/guestController");
 const { addItemView, allItemsView } = require("../controllers/itemController");
 const { allRoomsView } = require("../controllers/roomController");
-const {
-  allReservationView,
-  addReservationView,
-} = require("../controllers/reservationController");
-const {
-  allEmployeesView,
-  addEmployeeView,
-} = require("../controllers/employeeController");
-const {
-  allTransactionsView,
-  addTransactionView,
-} = require("../controllers/transactionController");
+const { allReservationView, addReservationView } = require("../controllers/reservationController");
+const { allEmployeesView, addEmployeeView } = require("../controllers/employeeController");
+const { allTransactionsView, addTransactionView } = require("../controllers/transactionController");
 const { invoiceView } = require("../controllers/invoiceController");
 
 const router = express.Router();
@@ -43,6 +30,7 @@ router.get("/item/all-items", allItemsView);
 router.get("/reservation/all-reservations", allReservationView);
 router.get("/reservation/add-reservation", addReservationView);
 
+
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
@@ -52,7 +40,7 @@ router.get("/transaction/all-transactions", allTransactionsView);
 router.get("/transaction/add-transaction", addTransactionView);
 
 // Invoice Routes
-router.get("/invoice", invoiceView);
+router.get("/invoice/:id", invoiceView);
 
 // Room Routes
 router.get("/room/all-rooms", roomController.allRoomsView);

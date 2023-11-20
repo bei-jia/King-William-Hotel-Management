@@ -28,12 +28,6 @@
         <label for="checkOut">Check Out Date</label>
         <input type="date" name="guest_Stay_check_out_date" id="checkOut" />
 
-        <label for="isCancelled">Is Cancelled?</label>
-        <select id="isCancelled">
-          <option selected>Any</option>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
       </div>
       <div class="buttons-group">
         <button type="submit">Search</button>
@@ -65,12 +59,12 @@
             <td>{{guest_fname}}</td>
             <td>{{guest_lname}}</td>
             <td>{{rm_id}}</td>
-            <td>{{guest_stay_check_in_date}}</td>
-            <td>{{guest_stay_check_out_date}}</td>
+            <td>{{formatDate guest_stay_check_in_date}}</td>
+            <td>{{formatDate guest_stay_check_out_date}}</td>
             <td>{{guest_stay_balance}}</td>
-            <td>{{guest_stay_is_cancelled}} </td>
+            <td>{{convertToYesNo guest_stay_is_cancelled}} </td>
             <td>{{guest_stay_cancelled_time}}</td>
-            <td><button class="invoice" onclick="window.location.href='/invoice'">Generate Invoice</button></td>
+            <td><button class="invoice" onclick="window.location.href='/invoice/{{this.guest_stay_id}}'">Generate Invoice</button></td>
           </tr>
         {{/each}}
       </tbody>
@@ -78,5 +72,4 @@
   </div>
 </div>
 
-<script>console.log({{reservation}}[0])</script>
 <script src="/js/utility.js"></script>
