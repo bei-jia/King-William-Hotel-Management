@@ -3,9 +3,9 @@
   <h1>Invoice</h1>
   <address>
     <h2>Billed To:</h2>
-    <p>John Doe</p>
-    <p>123 Street, Oshawa, ON</p>
-    <p>(123) 456-7890</p>
+    <p>{{invoice.guest_fname}} {{invoice.guest_lname}}</p>
+    <p>{{invoice.guest_street}}, {{invoice.guest_city}}</p>
+    <p>{{invoice.guest_phone}}</p>
   </address>
   <address class="right">
     <h2>From:</h2>
@@ -25,30 +25,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>$0.00</td>
-        <td>$0.00</td>
-      </tr>
+       {{#each transactions}}
+          <tr>
+            <td>{{item_desc}}</td>
+            <td>{{guest_trans_item_quantity}}</td>
+            <td>{{formatCurrency guest_trans_price}}</td>
+            <td>{{calculateTotal guest_trans_item_quantity guest_trans_price}}</td>
+          </tr>
+        {{/each}}
     </tbody>
   </table>
   <table class="balance">
     <tr>
       <th>Subtotal</th>
-      <td>$0.00</td>
+      <td>{{calculateSubtotal transactions}}</td>
     </tr>
     <tr>
-      <th>Tax</th>
-      <td>$0.00</td>
-    </tr>
-    <tr>
-      <th>Fees/discounts</th>
-      <td>$0.00</td>
+      <th>HST 13%</th>
+      <td>{{calculateTax (calculateSubtotal transactions) 0.13}}</td>
     </tr>
     <tr>
       <th>TOTAL</th>
-      <td>$0.00</td>
+       <td>${{calculateGrandtotal (calculateSubtotal transactions) (calculateTax (calculateSubtotal transactions) 0.13)}}</td>
     </tr>
   </table>
 </main>
