@@ -17,7 +17,7 @@
     <form action="/room/search-rooms" method="get">
       <div class="filter">
         <label for="roomNumber">Room Number</label>
-        <input type="text" id="roomID" name="roomNumber" class="entry-input"  />
+        <input type="text"  pattern="[0-9]*" title="Please enter a number" oninvalid="this.setCustomValidity('Please enter a number')" oninput="this.setCustomValidity('')" id="roomID" name="roomNumber" class="entry-input"  />
 
         <label for="category">Category</label>
             <select class="entry-input" id="category" name="category">
