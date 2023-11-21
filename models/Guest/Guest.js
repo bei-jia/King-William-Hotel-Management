@@ -44,6 +44,14 @@ class Guest {
 
     return pool.promise().query(query, values);
   }
+
+  static create(guestData) {
+    let query = "INSERT INTO guest (guest_fname, guest_lname, guest_phone, guest_email, guest_street, guest_city, guest_country, guest_postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    let values = [guestData.guest_fname, guestData.guest_lname, guestData.guest_phone, guestData.guest_email, guestData.guest_street, guestData.guest_city, guestData.guest_country, guestData.guest_postal_code];
+    return pool.promise().query(query, values);
+  }
 }
+
+
 
 module.exports = Guest;

@@ -49,4 +49,13 @@ const addGuestView = (req, res) => {
   });
 };
 
-module.exports = { allGuestsView, editGuestView, editGuest, addGuestView };
+const addGuest = (req, res) => {
+  const newGuestData = req.body;
+  Guest.create(newGuestData)
+    .then(() => {
+      res.redirect("/guest/all-guests");
+    })
+    .catch((err) => res.status(500).send(err));
+};
+
+module.exports = { allGuestsView, editGuestView, editGuest, addGuestView, addGuest };
