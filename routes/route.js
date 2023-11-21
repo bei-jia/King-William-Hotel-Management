@@ -13,7 +13,7 @@ const { allRoomsView } = require("../controllers/roomController");
 const {
   allReservationView,
   addReservationView,
-  addReservation
+  addReservation,
 } = require("../controllers/reservationController");
 const {
   allEmployeesView,
@@ -64,5 +64,6 @@ router.get("/invoice/:id", invoiceView);
 // Room Routes
 router.get("/room/all-rooms", roomController.allRoomsView);
 router.get("/room/search-rooms", roomController.searchRooms);
+router.get("/room/edit-room/:id", roomController.editRoomView);
 
 module.exports = router;

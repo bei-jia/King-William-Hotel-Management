@@ -17,18 +17,18 @@
     <form action="/room/search-rooms" method="get">
       <div class="filter">
         <label for="roomNumber">Room Number</label>
-        <input type="text" id="roomID" name="roomNumber" class="entry-input"  />
+        <input type="text" id="roomID" name="roomNumber" class="entry-input" />
 
         <label for="category">Category</label>
-            <select class="entry-input" id="category" name="category">
-            <option value="">Any</option>
-            <option value="single">Single</option>
-            <option value="double">Double</option>
-            <option value="suite 1">Suite 1</option>
-            <option value="suite 2">Suite 2</option>
-            <option value="suite 3">Suite 3</option>
-            <option value="suite 4">Suite 4</option>
-          </select>
+        <select class="entry-input" id="category" name="category">
+          <option value="">Any</option>
+          <option value="single">Single</option>
+          <option value="double">Double</option>
+          <option value="suite 1">Suite 1</option>
+          <option value="suite 2">Suite 2</option>
+          <option value="suite 3">Suite 3</option>
+          <option value="suite 4">Suite 4</option>
+        </select>
         <label for="occupied">Occupied</label>
         <select class="entry-input" id="occupied" name="occupied">
           <option value="">Any</option>
@@ -59,23 +59,27 @@
           <th>Rate</th>
           <th>Seasonal Rate</th>
           <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-                {{#each rooms}}
-                    <tr>
-                        <td>{{this.rm_id}}</td>
-                        <td>{{this.rm_category}}</td>
-                        <td>{{this.rm_is_occupied}}</td>
-                        <td>{{this.rm_base_rate}}</td>
-                        <td>{{this.rm_seasonal_rate}}</td>
-                        <td>{{this.rm_status_desc}}</td>
-                    </tr>
-                {{/each}}
+        {{#each rooms}}
+          <tr>
+            <td>{{this.rm_id}}</td>
+            <td>{{this.rm_category}}</td>
+            <td>{{this.rm_is_occupied}}</td>
+            <td>{{this.rm_base_rate}}</td>
+            <td>{{this.rm_seasonal_rate}}</td>
+            <td>{{this.rm_status_desc}}</td>
+            <td><button
+                onclick="window.location.href='edit-room/{{this.rm_id}}'"
+              >Edit Room</button></td>
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>
-  
+
 </div>
 
-<script src="/js/utility.js"></script>  
+<script src="/js/utility.js"></script>

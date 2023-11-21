@@ -1,0 +1,43 @@
+<div class="header-container">
+  <img src="/images/king-william-logo.png" class="logo" />
+  <h1>King William's - Edit Room</h1>
+</div>
+<div class="container">
+  <form>
+    <label for="reservationID"><strong>Room Number</strong></label>
+    <div id="reservationID" class="top-gap">
+      <input type="number" class="entry-input" readonly />
+    </div>
+
+    <br />
+
+    <label for="itemInformation"><strong>Room Information</strong></label>
+    <div class="flex-input top-gap">
+      <div style="width: 100%;">
+        <label for="itemName">Room Status</label>
+        <select id="itemName" class="top-gap">
+          <option value="1">Item 1</option>
+          <option value="2">Item 2</option>
+        </select>
+      </div>
+      <div style="width: 100%;">
+        <label for="itemName">Room Occupied</label>
+        <select id="itemName" class="top-gap">
+          <option value="1">Item 1</option>
+          <option value="2">Item 2</option>
+        </select>
+      </div>
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
+    <button id="clear-all">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button
+    onclick="window.location.href='/room/all-rooms'"
+    class="footer-button"
+  >Return to Rooms Page</button>
+</div>
+<script src="/js/utility.js"></script>
