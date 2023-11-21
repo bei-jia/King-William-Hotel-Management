@@ -1,4 +1,5 @@
 const Guest = require("../models/Guest/Guest");
+const pool = require("../database");
 
 const allGuestsView = (req, res) => {
   const criteria = req.query;
@@ -33,11 +34,39 @@ const editGuestView = (req, res) => {
 const editGuest = (req, res) => {
   const id = req.params.id;
   const updateData = req.body;
-  Guest.updateById(id, updateData)
-    .then(() => {
-      res.redirect("/guest/all-guests");
-    })
-    .catch((err) => res.status(500).send(err));
+  pool.getConnection((err, connection) => {
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    connection.beginTransaction(err => {
+      if (err) {
+        connection.release();
+        res.status(500).send(err);
+        return;
+      }
+      Guest.updateById(id, updateData, connection)
+        .then(() => {
+          connection.commit(err => {
+            if (err) {
+              connection.rollback(() => {
+                connection.release();
+                res.status(500).send(err);
+              });
+            } else {
+              connection.release();
+              res.redirect("/guest/all-guests");
+            }
+          });
+        })
+        .catch((err) => {
+          connection.rollback(() => {
+            connection.release();
+            res.status(500).send(err);
+          });
+        });
+    });
+  });
 };
 
 const addGuestView = (req, res) => {
@@ -51,11 +80,39 @@ const addGuestView = (req, res) => {
 
 const addGuest = (req, res) => {
   const newGuestData = req.body;
-  Guest.create(newGuestData)
-    .then(() => {
-      res.redirect("/guest/all-guests");
-    })
-    .catch((err) => res.status(500).send(err));
+  pool.getConnection((err, connection) => {
+    if (err) {
+      res.status(500).send(err);
+      return;
+    }
+    connection.beginTransaction(err => {
+      if (err) {
+        connection.release();
+        res.status(500).send(err);
+        return;
+      }
+      Guest.create(newGuestData, connection)
+        .then(() => {
+          connection.commit(err => {
+            if (err) {
+              connection.rollback(() => {
+                connection.release();
+                res.status(500).send(err);
+              });
+            } else {
+              connection.release();
+              res.redirect("/guest/all-guests");
+            }
+          });
+        })
+        .catch((err) => {
+          connection.rollback(() => {
+            connection.release();
+            res.status(500).send(err);
+          });
+        });
+    });
+  });
 };
 
 module.exports = { allGuestsView, editGuestView, editGuest, addGuestView, addGuest };

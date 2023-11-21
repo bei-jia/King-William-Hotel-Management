@@ -1,4 +1,3 @@
-
 const pool = require('../../database'); 
 
 class Guest {
@@ -21,13 +20,11 @@ class Guest {
     return pool.promise().query(query, values);
   }
 
-
   static findById(id) {
     return pool.promise().query("SELECT * FROM guest WHERE guest_id = ?", [id]);
   }
 
-  
-  static updateById(id, updateData) {
+  static updateById(id, updateData, connection) {
     let query = "UPDATE guest SET ";
     let updates = [];
     let values = [];
@@ -42,16 +39,15 @@ class Guest {
     query += updates.join(', ') + ' WHERE guest_id = ?';
     values.push(id);
 
-    return pool.promise().query(query, values);
+    return connection.promise().query(query, values);
   }
 
-  static create(guestData) {
+  static create(newData, connection) {
     let query = "INSERT INTO guest (guest_fname, guest_lname, guest_phone, guest_email, guest_street, guest_city, guest_country, guest_postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    let values = [guestData.guest_fname, guestData.guest_lname, guestData.guest_phone, guestData.guest_email, guestData.guest_street, guestData.guest_city, guestData.guest_country, guestData.guest_postal_code];
-    return pool.promise().query(query, values);
+    let values = [newData.guest_fname, newData.guest_lname, newData.guest_phone, newData.guest_email, newData.guest_street, newData.guest_city, newData.guest_country, newData.guest_postal_code];
+
+    return connection.promise().query(query, values);
   }
 }
-
-
 
 module.exports = Guest;
