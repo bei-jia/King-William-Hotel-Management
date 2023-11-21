@@ -15,6 +15,7 @@
         id="firstName"
         class="entry-input"
         placeholder="First Name"
+        required minlength="2"
         value="{{guest.guest_fname}}"
       />
       <input
@@ -23,6 +24,7 @@
         id="lastName"
         class="entry-input"
         placeholder="Last Name"
+        required minlength="2"
         value="{{guest.guest_lname}}"
       />
     </div>
@@ -33,6 +35,7 @@
       id="address"
       class="top-gap"
       placeholder="Street"
+      required
       value="{{guest.guest_street}}"
     />
     <div class="flex-input">
@@ -42,6 +45,7 @@
         id="city"
         class="entry-input"
         placeholder="City"
+        required
         value="{{guest.guest_city}}"
       />
       <input
@@ -50,6 +54,7 @@
         id="country"
         class="entry-input"
         placeholder="Country"
+        required
         value="{{guest.guest_country}}"
       />
     </div>
@@ -71,6 +76,7 @@
         id="email"
         class="entry-input"
         placeholder="Email Address"
+        required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         value="{{guest.guest_email}}"
       />
       <input
@@ -79,6 +85,7 @@
         id="phone"
         class="entry-input"
         placeholder="Phone Number"
+        required
         value="{{guest.guest_phone}}"
       />
     </div>

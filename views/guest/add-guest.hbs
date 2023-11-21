@@ -3,42 +3,51 @@
   <h1>King William's - Add Guest</h1>
 </div>
 <div class="container">
-  <form>
+  <form action="/guest/add-guest" method="post">
     <label for="fullName"><strong>Full Name</strong></label>
     <div id="fullName" class="flex-input top-gap">
       <input
         type="text"
         id="firstName"
+        name="guest_fname"
         class="entry-input"
         placeholder="First Name"
+        required minlength="2"
       />
       <input
         type="text"
         id="lastName"
+        name="guest_lname"
         class="entry-input"
         placeholder="Last Name"
+        required minlength="2"
       />
     </div>
     <label for="address"><strong>Address</strong></label>
     <input
       type="text"
       id="street"
+      name="guest_street"
       class="top-gap"
       placeholder="Street Address"
+      required
     />
     <div id="cityCountry" class="flex-input">
-      <input type="text" id="city" class="entry-input" placeholder="City" />
+      <input type="text" id="city" name="guest_city" class="entry-input" placeholder="City" />
       <input
         type="text"
         id="country"
+        name="guest_country"
         class="entry-input"
         placeholder="Country"
+        required
       />
     </div>
     <div class="entry-item">
       <input
         type="text"
         id="postalCode"
+        name="guest_postal_code"
         class="entry-input"
         placeholder="Postal Code"
       />
@@ -48,14 +57,18 @@
       <input
         type="email"
         id="email"
+        name="guest_email"
         class="entry-input"
         placeholder="Email Address"
+        required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
       />
       <input
         type="tel"
         id="phone"
+        name="guest_phone"
         class="entry-input"
         placeholder="Phone Number (ex. 9051231234)"
+        required
       />
     </div>
     <br />
