@@ -25,7 +25,7 @@ class Employee {
           newEmployee.positionId
         ];
 
-        db.query(query, values, (err, results) => {
+        pool.query(query, values, (err, results) => {
           if (err) reject(err);
           else resolve(results.insertId); // assuming you might want the inserted employee's ID
         }        
