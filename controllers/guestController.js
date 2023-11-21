@@ -1,4 +1,4 @@
-const Guest = require('../models/Guest/Guest');
+const Guest = require("../models/Guest/Guest");
 
 const allGuestsView = (req, res) => {
   const criteria = req.query;
@@ -7,10 +7,10 @@ const allGuestsView = (req, res) => {
       res.render("guest/all-guests", {
         pageTitle: "King William's - All Guests",
         pageStyle: "/css/guest/all-guests.css",
-        guests: rows
+        guests: rows,
       });
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 };
 
 const editGuestView = (req, res) => {
@@ -21,13 +21,13 @@ const editGuestView = (req, res) => {
         res.render("guest/edit-guest", {
           pageTitle: "King William's - Edit Guest",
           pageStyle: "/css/guest/edit-guest.css",
-          guest: rows[0]
+          guest: rows[0],
         });
       } else {
-        res.status(404).send('Guest not found');
+        res.status(404).send("Guest not found");
       }
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 };
 
 const editGuest = (req, res) => {
@@ -35,9 +35,18 @@ const editGuest = (req, res) => {
   const updateData = req.body;
   Guest.updateById(id, updateData)
     .then(() => {
-      res.redirect('/guest/all-guests');
+      res.redirect("/guest/all-guests");
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 };
 
-module.exports = { allGuestsView, editGuestView, editGuest };
+const addGuestView = (req, res) => {
+  const pageTitle = "King William's - Add Guest";
+  const pageStyle = "/css/guest/add-guest.css";
+  res.render("guest/add-guest", {
+    pageTitle: pageTitle,
+    pageStyle: pageStyle,
+  });
+};
+
+module.exports = { allGuestsView, editGuestView, editGuest, addGuestView };

@@ -10,6 +10,8 @@
 <div class="navbar">
   <button onclick="window.location.href='/manage'" class="footer-button">Return
     to Manage Page</button>
+  <button onclick="window.location.href='add-guest'" class="footer-button">Add
+    Guest</button>
 </div>
 <div class="container">
   <div class="search-section" style="margin-left: 3rem;">
@@ -76,7 +78,10 @@
             <td>{{guest_postal_code}}</td>
             <td>{{guest_email}}</td>
             <td>{{guest_phone}}</td>
-            <td><a href="/guest/edit-guest/{{this.guest_id}}">Edit</a></td>
+            <td>
+              <a href="/guest/edit-guest/{{this.guest_id}}">Edit</a>
+              <a href="/reservation/add-reservation">Add Reservation</a>
+            </td>
           </tr>
         {{/each}}
       </tbody>

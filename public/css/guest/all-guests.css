@@ -23,6 +23,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
+  overflow-x: auto;
 }
 h1 {
   text-align: center;
@@ -43,10 +44,12 @@ h1 {
 }
 
 .search-section {
-  flex: 1;
+  flex: 0 0 10%;
+  margin-left: -3rem;
+  margin-right: -1rem;
 }
 .results-section {
-  flex: 0 0 75%;
+  flex: 0 0 90%;
 }
 .search-item {
   position: relative;
@@ -58,7 +61,6 @@ input[type="email"],
 select {
   width: 60%;
   padding: 10px;
-  padding-right: 60px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -104,8 +106,9 @@ td {
 }
 th,
 td {
-  padding: 10px;
+  padding: 6px;
   text-align: left;
+  white-space: nowrap;
 }
 th {
   background-color: #f2f2f2;

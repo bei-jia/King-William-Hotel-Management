@@ -20,9 +20,13 @@ class Guest {
 
     return pool.promise().query(query, values);
   }
+
+
   static findById(id) {
     return pool.promise().query("SELECT * FROM guest WHERE guest_id = ?", [id]);
   }
+
+  
   static updateById(id, updateData) {
     let query = "UPDATE guest SET ";
     let updates = [];

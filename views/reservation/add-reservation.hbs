@@ -4,61 +4,6 @@
 </div>
 <div class="container">
   <form>
-    <label for="fullName"><strong>Full Name</strong></label>
-    <div id="fullName" class="flex-input top-gap">
-      <input
-        type="text"
-        id="firstName"
-        class="entry-input"
-        placeholder="First Name"
-      />
-      <input
-        type="text"
-        id="lastName"
-        class="entry-input"
-        placeholder="Last Name"
-      />
-    </div>
-    <label for="address"><strong>Address</strong></label>
-    <input
-      type="text"
-      id="street"
-      class="top-gap"
-      placeholder="Street Address"
-    />
-    <div id="cityCountry" class="flex-input">
-      <input type="text" id="city" class="entry-input" placeholder="City" />
-      <input
-        type="text"
-        id="country"
-        class="entry-input"
-        placeholder="Country"
-      />
-    </div>
-    <div class="entry-item">
-      <input
-        type="text"
-        id="postalCode"
-        class="entry-input"
-        placeholder="Postal Code"
-      />
-    </div>
-    <label for="contactInformation"><strong>Contact Information</strong></label>
-    <div id="contactInformation" class="flex-input top-gap">
-      <input
-        type="email"
-        id="email"
-        class="entry-input"
-        placeholder="Email Address"
-      />
-      <input
-        type="tel"
-        id="phone"
-        class="entry-input"
-        placeholder="Phone Number (ex. 9051231234)"
-      />
-    </div>
-
     <label for="reservationInformation"><strong>Reservation Information</strong></label>
     <div id="reservationInformation" class="flex-input top-gap">
       <div class="width-100">
@@ -108,8 +53,9 @@
 </div>
 <div style="text-align: center; margin-top: 20px;">
   <button
-    onclick="window.location.href='/reservation/all-reservations'"
+    onclick="window.location.href='/guest/all-guests'"
     class="footer-button"
-  >Return to Reservation Page</button>
+  >Return to Guest Page</button>
 </div>
 <script src="/js/utility.js"></script>
+<script src="/js/reservationHandlers.js"></script>

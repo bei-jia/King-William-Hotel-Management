@@ -9,61 +9,71 @@
 <div class="navbar">
   <button onclick="window.location.href='/manage'" class="footer-button">Return
     to Main Page</button>
-  <button
-    onclick="window.location.href='add-reservation'"
-    class="footer-button"
-  >Add Reservation</button>
 </div>
 <div class="container">
   <div class="search-section">
-    <div class="filter">
-      <label for="reservationID">Reservation Number</label>
-      <input type="text" id="reservationID" />
+    <form
+      action="/reservation/all-reservations"
+      method="get"
+      class="search-section"
+    >
+      <div class="filter">
+        <label for="reservationID">Reservation Number</label>
+        <input type="text" name="guest_stay_id" id="reservationID" />
 
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" />
+        <label for="firstName">First Name</label>
+        <input type="text" name="guest_fname" id="firstName" />
 
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" />
+        <label for="lastName">Last Name</label>
+        <input type="text" name="guest_lname" id="lastName" />
 
-      <label for="roomID">Room Number</label>
-      <input type="text" id="roomID" />
+        <label for="roomID">Room Number</label>
+        <input type="text" name="room.rm_id" id="roomID" />
 
-      <label for="checkIn">Check In Date</label>
-      <input type="date" id="checkIn" />
+        <label for="checkIn">Check In Date</label>
+        <input type="date" name="guest_Stay_check_in_date" id="checkIn" />
 
-      <label for="checkOut">Check Out Date</label>
-      <input type="date" id="checkOut" />
+        <label for="checkOut">Check Out Date</label>
+        <input type="date" name="guest_Stay_check_out_date" id="checkOut" />
 
-      <label for="isCancelled">Is Cancelled?</label>
-      <select id="isCancelled">
-        <option selected>Any</option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-    <div class="buttons-group">
-      <button>Search</button>
-    </div>
+      </div>
+      <div class="buttons-group">
+        <button type="submit">Search</button>
+      </div>
+    </form>
   </div>
 
   <div class="results-section">
     <table>
       <thead>
         <tr>
-          <th>Reservation Number</th>
+          <th width="10%">Reservation Number</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Room Number</th>
           <th>Check-in Date</th>
           <th>Check-out Date</th>
           <th>Balance</th>
-          <th>Is Cancelled?</th>
-          <th>Cancelled Time</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <!-- Place holder for abstracted records -->
+        {{#each reservation}}
+          <tr>
+            <td>{{guest_stay_id}}</td>
+            <td>{{guest_fname}}</td>
+            <td>{{guest_lname}}</td>
+            <td>{{rm_id}}</td>
+            <td>{{formatDate guest_stay_check_in_date}}</td>
+            <td>{{formatDate guest_stay_check_out_date}}</td>
+            <td>{{guest_stay_balance}}</td>
+            <td><button
+                class="invoice"
+                onclick="window.location.href='/invoice/{{this.guest_stay_id}}'"
+              >Generate Invoice</button></td>
+          </tr>
+        {{/each}}
       </tbody>
     </table>
   </div>

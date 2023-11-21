@@ -127,3 +127,7 @@ div.filter label:after {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.invoice {
+  background-color: lightgreen;
+}

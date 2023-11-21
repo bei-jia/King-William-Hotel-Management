@@ -1,4 +1,6 @@
 
+
+
 function clearEntryBox(elementId) {
   document.getElementById(elementId).value = "";
 }
@@ -14,3 +16,9 @@ document.getElementById("clear-all").addEventListener("click", function (e) {
   e.preventDefault();
   clearAllEntryBoxes();
 });
+
+
+
+
+
+

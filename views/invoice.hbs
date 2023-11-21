@@ -1,0 +1,52 @@
+<header>
+  <img src="/images/king-william-logo.png" width="20%" />
+  <h1>Invoice</h1>
+  <address>
+    <h2>Billed To:</h2>
+    <p>{{invoice.guest_fname}} {{invoice.guest_lname}}</p>
+    <p>{{invoice.guest_street}}, {{invoice.guest_city}}</p>
+    <p>{{invoice.guest_phone}}</p>
+  </address>
+  <address class="right">
+    <h2>From:</h2>
+    <p>King William</p>
+    <p>423 Street, Oshawa, ON</p>
+    <p>(999) 126-2290</p>
+  </address>
+</header>
+<main>
+  <table class="inventory border">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price per unit</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+       {{#each transactions}}
+          <tr>
+            <td>{{item_desc}}</td>
+            <td>{{guest_trans_item_quantity}}</td>
+            <td>{{formatCurrency guest_trans_price}}</td>
+            <td>{{calculateTotal guest_trans_item_quantity guest_trans_price}}</td>
+          </tr>
+        {{/each}}
+    </tbody>
+  </table>
+  <table class="balance">
+    <tr>
+      <th>Subtotal</th>
+      <td>{{calculateSubtotal transactions}}</td>
+    </tr>
+    <tr>
+      <th>HST 13%</th>
+      <td>{{calculateTax (calculateSubtotal transactions) 0.13}}</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+       <td>${{calculateGrandtotal (calculateSubtotal transactions) (calculateTax (calculateSubtotal transactions) 0.13)}}</td>
+    </tr>
+  </table>
+</main>
