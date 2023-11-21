@@ -13,6 +13,7 @@ const { allRoomsView } = require("../controllers/roomController");
 const {
   allReservationView,
   addReservationView,
+  addReservation
 } = require("../controllers/reservationController");
 const {
   allEmployeesView,
@@ -45,7 +46,8 @@ router.get("/item/all-items", allItemsView);
 
 // Reservation Routes
 router.get("/reservation/all-reservations", allReservationView);
-router.get("/reservation/add-reservation", addReservationView);
+router.get("/reservation/add-reservation-view/:id", addReservationView);
+router.post("/reservation/add-reservation/:id", addReservation);
 
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);

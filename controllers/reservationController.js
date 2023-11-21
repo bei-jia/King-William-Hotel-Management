@@ -1,4 +1,4 @@
-const Reservation = require('../models/Reservation');
+const Reservation = require("../models/Reservation");
 
 const allReservationView = (req, res) => {
   const criteria = req.query;
@@ -10,21 +10,43 @@ const allReservationView = (req, res) => {
       res.render("reservation/all-reservations", {
         pageTitle: pageTitle,
         pageStyle: pageStyle,
-        reservation: rows
+        reservation: rows,
       });
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 };
-
-
 
 const addReservationView = (req, res) => {
-  const pageTitle = "King William's - Add Reservation";
-  const pageStyle = "/css/reservation/add-reservation.css";
-  res.render("reservation/add-reservation", {
-    pageTitle: pageTitle,
-    pageStyle: pageStyle,
-  });
+  const id = req.params.id;
+  Reservation.findGuestById(id)
+    .then(([rows]) => {
+      if (rows.length > 0) {
+        res.render("reservation/add-reservation-view", {
+          pageTitle: "King William's - Add Reservation",
+          pageStyle: "/css/reservation/add-reservation.css",
+          guest: rows[0],
+        });
+      } else {
+        res.status(404).send("Guest not found");
+      }
+    })
+    .catch((err) => res.status(500).send(err));
 };
 
-module.exports = { allReservationView, addReservationView };
+const addReservation = (req, res) => {
+  const guestId = req.params.id;
+  const newReservation = {
+    checkInDate: req.body.checkInDate,
+    checkOutDate: req.body.checkOutDate,
+    balance: 0,
+    isCancelled: 0,
+    cancelledTime: null,
+    guestId: guestId,
+    roomId: req.body.roomId,
+  };
+
+  Reservation.addReservation(newReservation)
+    .then(() => res.redirect("/reservation/all-reservations"))
+    .catch((err) => res.status(500).send(err.message));
+};
+module.exports = { allReservationView, addReservationView, addReservation };
