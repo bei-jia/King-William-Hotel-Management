@@ -7,6 +7,7 @@ const {
   editGuestView,
   addGuestView,
   addGuest,
+  editGuest,
 } = require("../controllers/guestController");
 const {
   addItemView,
@@ -43,7 +44,8 @@ router.get("/", manageView);
 router.get("/guest/all-guests", allGuestsView);
 router.get("/guest/add-guest", addGuestView);
 router.post("/guest/add-guest", addGuest);
-router.get("/guest/edit-guest", editGuestView);
+router.get("/guest/edit-guest/:id", editGuestView);
+router.post("/guest/edit-guest/:id", editGuest);
 
 // Item Routes
 router.get("/item/add-item", addItemView);

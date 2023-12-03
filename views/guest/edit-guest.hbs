@@ -5,8 +5,8 @@
   <h1>King William's - Edit Guest</h1>
 </div>
 <div class="container">
-  
-  <form action="/guest/update-guest/{{guest.guest_id}}" method="post">
+
+  <form action="/guest/edit-guest/{{guest.guest_id}}" method="post">
     <label for="fullName"><strong>Full Name</strong></label>
     <div id="fullName" class="flex-input top-gap">
       <input
@@ -15,7 +15,8 @@
         id="firstName"
         class="entry-input"
         placeholder="First Name"
-        required minlength="2"
+        required
+        minlength="2"
         value="{{guest.guest_fname}}"
       />
       <input
@@ -24,7 +25,8 @@
         id="lastName"
         class="entry-input"
         placeholder="Last Name"
-        required minlength="2"
+        required
+        minlength="2"
         value="{{guest.guest_lname}}"
       />
     </div>
@@ -76,7 +78,8 @@
         id="email"
         class="entry-input"
         placeholder="Email Address"
-        required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         value="{{guest.guest_email}}"
       />
       <input
