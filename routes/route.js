@@ -14,7 +14,11 @@ const {
   allItemsView,
   createItemsView,
 } = require("../controllers/itemController");
-const { allRoomsView, editRoomView } = require("../controllers/roomController");
+const {
+  allRoomsView,
+  editRoomView,
+  searchRooms,
+} = require("../controllers/roomController");
 const {
   allReservationView,
   addReservationView,
@@ -30,7 +34,7 @@ const {
   addTransactionView,
   createTransactions,
 } = require("../controllers/transactionController");
-const { create } = require("express-handlebars");
+const { invoiceView } = require("../controllers/invoiceController");
 
 const router = express.Router();
 
@@ -55,6 +59,7 @@ router.get("/item/all-items", allItemsView);
 
 // Room Routes
 router.get("/room/all-rooms", allRoomsView);
+router.get("/room/search-rooms", searchRooms);
 router.get("/room/edit-room/:id", editRoomView);
 
 // Reservation Routes
@@ -71,6 +76,9 @@ router.post("/employee/add-employee", addEmployee);
 router.get("/transaction/all-transactions", allTransactionsView);
 router.get("/transaction/add-transaction", addTransactionView);
 router.post("/transaction/add-transaction", createTransactions);
+
+// Invoice Routes
+router.get("/invoice/:id", invoiceView);
 
 // Logout
 router.get("/logout", (req, res) => {
