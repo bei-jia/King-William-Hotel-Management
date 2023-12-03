@@ -4,6 +4,7 @@ const manageView = (req, res) => {
   res.render("manage", {
     pageTitle: pageTitle,
     pageStyle: pageStyle,
+    isAdmin: req.session.username === "admin",
   });
 };
 

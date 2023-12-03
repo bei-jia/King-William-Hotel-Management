@@ -79,20 +79,6 @@ input[type="password"]:focus {
   position: relative;
 }
 
-.input ~ .focus-border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #2c6b5b;
-  transition: 0.4s;
-}
-.input:focus ~ .focus-border {
-  width: 100%;
-  transition: 0.4s;
-}
-
 section .right .title {
   font-size: 3.5rem;
   text-align: center;

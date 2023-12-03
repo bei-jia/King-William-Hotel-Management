@@ -1,14 +1,16 @@
 <nav>
   <a href="/">Manage</a>
-  <a href="/login">Logout</a>
+  <a href="/logout">Logout</a>
 </nav>
 <section>
   <h1 class="title">What would you like to manage today?</h1>
   <div class="selection">
-    <a href="/employee/all-employees">
-      <p>Employee</p>
-      <img src="/images/manage/clarity-employee-group-solid.jpg" />
-    </a>
+    {{#if isAdmin}}
+      <a href="/employee/all-employees">
+        <p>Employee</p>
+        <img src="/images/manage/clarity-employee-group-solid.jpg" />
+      </a>
+    {{/if}}
     <a href="/reservation/all-reservations">
       <p>Reservation</p>
       <img src="/images/manage/fluent-mdl-2-reservation-orders.jpg" />

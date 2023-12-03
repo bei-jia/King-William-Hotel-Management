@@ -4,14 +4,22 @@
   </div>
   <div class="right">
     <p class="title">Login</p>
-    <form>
+    <form action="/login" method="post">
       <div class="col">
-        <input class="input" type="text" placeholder="Username" />
-        <span class="focus-border"></span>
+        <input
+          class="input"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
       </div>
       <div class="col">
-        <input class="input" type="password" placeholder="Password" />
-        <span class="focus-border"></span>
+        <input
+          class="input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
       </div>
       <button class="button" type="submit">Login</button>
     </form>

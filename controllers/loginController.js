@@ -7,4 +7,18 @@ const loginView = (req, res) => {
   });
 };
 
-module.exports = { loginView };
+const login = (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  if (
+    (username === "admin" && password === "admin") ||
+    (username === "employee" && password === "employee")
+  ) {
+    req.session.username = username;
+    res.redirect("/");
+  } else {
+    res.redirect("/login");
+  }
+};
+
+module.exports = { loginView, login };

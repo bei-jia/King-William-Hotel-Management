@@ -4,15 +4,23 @@ const dotenv = require("dotenv");
 const path = require("path");
 const helper = require("./helper");
 
-
-const employeeRoutes = require("./routes/route"); 
-const routes = require("./routes/route"); 
+const session = require("express-session");
 
 dotenv.config({ path: "./process.env" });
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+
+const unless = (path, middleware) => {
+  return (req, res, next) => {
+    if (path === req.path) {
+      return next();
+    } else {
+      return middleware(req, res, next);
+    }
+  };
+};
 
 app.engine(
   "hbs",
@@ -29,13 +37,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(
+  unless("/login", (req, res, next) => {
+    if (req.session.username) {
+      next();
+    } else {
+      res.redirect("/login");
+    }
+  })
+);
+
 app.use("/", require("./routes/route"));
 
 app.use((req, res, next) => {
   res.locals.formatDate = helper.formatDate;
   next();
 });
-app.use("/employee", employeeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

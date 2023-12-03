@@ -1,5 +1,5 @@
 const express = require("express");
-const { loginView } = require("../controllers/loginController");
+const { loginView, login } = require("../controllers/loginController");
 
 const { manageView } = require("../controllers/manageController");
 const {
@@ -34,6 +34,7 @@ const router = express.Router();
 
 // Login Route
 router.get("/login", loginView);
+router.post("/login", login);
 
 // Manage Route
 router.get("/", manageView);
@@ -66,5 +67,11 @@ router.get("/employee/add-employee", addEmployeeView);
 router.get("/transaction/all-transactions", allTransactionsView);
 router.get("/transaction/add-transaction", addTransactionView);
 router.post("/transaction/add-transaction", createTransactions);
+
+// Logout
+router.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
+});
 
 module.exports = router;
