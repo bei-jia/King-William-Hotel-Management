@@ -8,8 +8,8 @@
 </div>
 
 <div class="navbar">
-  <button onclick="window.location.href='/manage'" class="footer-button">Return
-    to Manage Page</button>
+  <button onclick="window.location.href='/'" class="footer-button">Return to
+    Manage Page</button>
   <button onclick="window.location.href='add-guest'" class="footer-button">Add
     Guest</button>
 </div>
@@ -80,7 +80,8 @@
             <td>{{guest_phone}}</td>
             <td>
               <a href="/guest/edit-guest/{{this.guest_id}}">Edit</a>
-              <a href="/reservation/add-reservation-view/{{this.guest_id}}">Add Reservation</a>
+              <a href="/reservation/add-reservation/{{this.guest_id}}">Add
+                Reservation</a>
             </td>
           </tr>
         {{/each}}

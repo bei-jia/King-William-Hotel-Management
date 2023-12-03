@@ -9,16 +9,24 @@
   <h1>King William's - Rooms</h1>
 </div>
 <div class="navbar">
-  <button onclick="window.location.href='/manage'" class="footer-button">Return
-    to Manage Page</button>
+  <button onclick="window.location.href='/'" class="footer-button">Return to
+    Manage Page</button>
 </div>
 <div class="container">
   <div class="search-section">
     <form action="/room/search-rooms" method="get">
       <div class="filter">
         <label for="roomNumber">Room Number</label>
-        <input type="text"  pattern="[0-9]*" title="Please enter a number" oninvalid="this.setCustomValidity('Please enter a number')" oninput="this.setCustomValidity('')" id="roomID" name="roomNumber" class="entry-input"  />
-
+        <input
+          type="text"
+          pattern="[0-9]*"
+          title="Please enter a number"
+          oninvalid="this.setCustomValidity('Please enter a number')"
+          oninput="this.setCustomValidity('')"
+          id="roomID"
+          name="roomNumber"
+          class="entry-input"
+        />
 
         <label for="category">Category</label>
         <select class="entry-input" id="category" name="category">

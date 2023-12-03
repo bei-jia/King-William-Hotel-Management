@@ -21,7 +21,7 @@ const addReservationView = (req, res) => {
   Reservation.findGuestById(id)
     .then(([rows]) => {
       if (rows.length > 0) {
-        res.render("reservation/add-reservation-view", {
+        res.render("reservation/add-reservation", {
           pageTitle: "King William's - Add Reservation",
           pageStyle: "/css/reservation/add-reservation.css",
           guest: rows[0],
