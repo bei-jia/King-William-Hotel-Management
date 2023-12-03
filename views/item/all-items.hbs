@@ -1,44 +1,51 @@
 <div class="header-container">
-  <img
-    src="/images/king-william-logo.png"
-    alt="King William's Logo"
-    class="logo"
-  />
-  <h1>King William's - Items</h1>
+    <img
+            src="/images/king-william-logo.png"
+            alt="King William's Logo"
+            class="logo"
+    />
+    <h1>King William's - Items</h1>
 </div>
 <div class="navbar">
-  <button onclick="window.location.href='/manage'" class="footer-button">Return
-    to Manage Page</button>
-  <button onclick="window.location.href='add-item'" class="footer-button">Add
-    Item</button>
+    <button onclick="window.location.href='/manage'" class="footer-button">Return
+        to Manage Page</button>
+    <button onclick="window.location.href='add-item'" class="footer-button">Add
+        Item</button>
 </div>
 <div class="container">
-  <div class="search-section">
-    <div class="filter">
-      <label for="itemID">Item ID</label>
-      <input type="number" id="itemID" />
-      <label for="description">Description</label>
-      <input type="text" id="description" />
+    <div class="search-section">
+        <form  action="/item/all-items" method="get" class="search-section">
+            <div class="filter">
+                <label for="itemID">Item ID</label>
+                <input name="item_id" type="number" id="itemID" />
+                <label for="description">Description</label>
+                <input name="item_desc" type="text" id="description" />
+            </div>
+            <div class="buttons-group">
+                <button type="submit">Search</button>
+            </div>
+        </form>
     </div>
-    <div class="buttons-group">
-      <button>Search</button>
+    <div class="results-section">
+        <table>
+            <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            {{#each items}}
+                    <td>{{item_id}}</td>
+                    <td>{{item_desc}}</td>
+                    <td>{{item_price}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
     </div>
-  </div>
-
-  <div class="results-section">
-    <table>
-      <thead>
-        <tr>
-          <th>Item ID</th>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Place holder for abstracted records -->
-      </tbody>
-    </table>
-  </div>
 </div>
 
 <script src="/js/utility.js"></script>
