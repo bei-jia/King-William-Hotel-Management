@@ -1,12 +1,17 @@
 const pool = require("../database");
 const Room = require("../models/Room/Room");
-const allRoomsView = (req, res) => {
-  const pageTitle = "King William's - Rooms";
-  const pageStyle = "/css/room/all-rooms.css";
-  res.render("room/all-rooms", {
-    pageTitle: pageTitle,
-    pageStyle: pageStyle,
-  });
+const allRoomsView = async (req, res) => {
+  try {
+    const rooms = await Room.getByFilters({});
+    res.render("room/all-rooms", {
+      pageTitle: "King William's - Rooms",
+      pageStyle: "/css/room/all-rooms.css",
+      rooms: rooms,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 };
 
 // roomController.js

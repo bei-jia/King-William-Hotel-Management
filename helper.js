@@ -8,6 +8,16 @@ Handlebars.registerHelper("formatDate", function (date) {
   return `${year}-${month}-${day}`;
 });
 
+Handlebars.registerHelper("formatDateTime", function (datetime) {
+  const year = datetime.getFullYear();
+  const month = String(datetime.getMonth() + 1).padStart(2, "0");
+  const day = String(datetime.getDate()).padStart(2, "0");
+  const hour = String(datetime.getHours()).padStart(2, "0");
+  const minute = String(datetime.getMinutes()).padStart(2, "0");
+
+  return `${year}-${month}-${day} ${hour}:${minute}`;
+});
+
 Handlebars.registerHelper("convertToYesNo", function (value) {
   return value === 1 ? "Yes" : "No";
 });
@@ -28,14 +38,16 @@ Handlebars.registerHelper("calculateSubtotal", function (transactions) {
   let subtotal = 0;
 
   transactions.forEach((transaction) => {
-    const total = parseFloat(transaction.guest_trans_item_quantity) * parseFloat(transaction.guest_trans_price);
+    const total =
+      parseFloat(transaction.guest_trans_item_quantity) *
+      parseFloat(transaction.guest_trans_price);
     subtotal += isNaN(total) ? 0 : total;
   });
 
   return subtotal.toFixed(2);
 });
 
-Handlebars.registerHelper('calculateTax', function (subtotal, taxRate) {
+Handlebars.registerHelper("calculateTax", function (subtotal, taxRate) {
   // Ensure subtotal and taxRate are numeric values
   const numericSubtotal = parseFloat(subtotal);
   const numericTaxRate = parseFloat(taxRate);
@@ -50,7 +62,7 @@ Handlebars.registerHelper('calculateTax', function (subtotal, taxRate) {
   return Tax.toFixed(2);
 });
 
-Handlebars.registerHelper('calculateGrandtotal', function (subtotal, tax) {
+Handlebars.registerHelper("calculateGrandtotal", function (subtotal, tax) {
   // Ensure subtotal and taxRate are numeric values
   const numericSubtotal = parseFloat(subtotal);
   const numericTax = parseFloat(tax);

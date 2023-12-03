@@ -5,8 +5,14 @@ const { manageView } = require("../controllers/manageController");
 const {
   allGuestsView,
   editGuestView,
+  addGuestView,
+  addGuest,
 } = require("../controllers/guestController");
-const { addItemView, allItemsView, createItemsView } = require("../controllers/itemController");
+const {
+  addItemView,
+  allItemsView,
+  createItemsView,
+} = require("../controllers/itemController");
 const { allRoomsView } = require("../controllers/roomController");
 const {
   allReservationView,
@@ -21,7 +27,7 @@ const {
   addTransactionView,
   createTransactions,
 } = require("../controllers/transactionController");
-const {create} = require("express-handlebars");
+const { create } = require("express-handlebars");
 
 const router = express.Router();
 
@@ -33,6 +39,8 @@ router.get("/manage", manageView);
 
 // Guest Routes
 router.get("/guest/all-guests", allGuestsView);
+router.get("/guest/add-guest", addGuestView);
+router.post("/guest/add-guest", addGuest);
 router.get("/guest/edit-guest", editGuestView);
 
 // Item Routes
