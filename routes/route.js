@@ -23,6 +23,7 @@ const {
 const {
   allEmployeesView,
   addEmployeeView,
+  addEmployee,
 } = require("../controllers/employeeController");
 const {
   allTransactionsView,
@@ -64,6 +65,7 @@ router.post("/reservation/add-reservation/:id", addReservation);
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
+router.post("/employee/add-employee", addEmployee);
 
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);
