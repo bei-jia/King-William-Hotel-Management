@@ -101,7 +101,9 @@
             <td>{{this.emp_email}}</td>
             <td>{{this.emp_phone}}</td>
             <td>{{#if this.emp_is_permanent}}Yes{{else}}No{{/if}}</td>
-            <td>{{lookup ../positions this.position_id}}</td> 
+            <td>{{this.position_desc}}</td>
+
+            <!--<td>{{lookup ../positions this.position_id}}</td> -->
           </tr>
         {{/each}}
       </tbody>
