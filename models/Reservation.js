@@ -27,6 +27,31 @@ class Reservation {
     return pool.promise().query("SELECT * FROM guest WHERE guest_id = ?", [id]);
   }
 
+   // Find rooms that are not occupied
+   static findEmptyRooms() {
+    return pool.promise().query("SELECT * FROM room WHERE rm_is_occupied = 0" );
+  }
+
+  // Update the room so that the room is occupied
+  static async occupyRoom(roomId) {
+    try {
+      const query = 'UPDATE room SET rm_is_occupied = 1 WHERE rm_id = ?';
+      const [result] = await pool.promise().query(query, [roomId]);
+
+      // Check if the update was successful
+      if (result.affectedRows > 0) {
+        console.log(`Room status updated for roomId ${roomId}`);
+        return true;
+      } else {
+        console.log(`Room with roomId ${roomId} not found`);
+        return false;
+      }
+    } catch (error) {
+      console.error('Error updating room status:', error);
+      throw error;
+    }
+  }
+
   // Insert
   static addReservation(newReservation) {
     return new Promise((resolve, reject) => {
