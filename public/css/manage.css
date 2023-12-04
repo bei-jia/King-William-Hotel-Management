@@ -59,13 +59,19 @@ section .title {
 
 .selection > a > img {
   width: 50%;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   margin-right: 3rem;
   margin-left: 3rem;
   margin-bottom: 2rem;
 }
 
-a:hover {
-  text-decoration: underline;
+nav > a:hover,
+nav > a:active,
+nav > a:focus,
+nav > a:visited,
+nav > a:link {
+  text-decoration: none;
   cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
