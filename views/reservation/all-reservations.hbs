@@ -70,7 +70,7 @@
             <td>{{guest_stay_balance}}</td>
             <td><button
                 class="invoice"
-                onclick="window.location.href='/invoice/{{this.guest_stay_id}}'"
+                onclick="window.open('/invoice/{{this.guest_stay_id}}')"
               >Generate Invoice</button></td>
           </tr>
         {{/each}}

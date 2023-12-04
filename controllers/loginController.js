@@ -1,6 +1,10 @@
 const loginView = (req, res) => {
   const pageTitle = "Login";
   const pageStyle = "/css/login.css";
+  if (req.session.username) {
+    res.redirect("/");
+    return;
+  }
   res.render("login", {
     pageTitle: pageTitle,
     pageStyle: pageStyle,
