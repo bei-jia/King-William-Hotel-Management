@@ -4,6 +4,7 @@ class GuestTransaction {
 
     static createTransaction(newTransaction){
         return new Promise((resolve, reject) => {
+
             const query = `INSERT INTO guest_transaction (guest_trans_date, guest_trans_price, 
             guest_trans_item_quantity, item_id, guest_stay_id) VALUES (current_date(), ?, ?, ?, ?)`;
 
@@ -25,7 +26,7 @@ class GuestTransaction {
         });
     }
     static findTransaction(filters){
-        let query = `SELECT guest_trans_id, guest_trans_date, guest_trans_price, gt.item_id, guest_trans_item_quantity, 
+        let query = `SELECT guest_trans_id, guest_trans_date, guest_trans_price, item_desc, guest_trans_item_quantity, 
                         guest_stay_id
                       FROM guest_transaction gt
                       INNER JOIN item i ON gt.item_id = i.item_id`;
