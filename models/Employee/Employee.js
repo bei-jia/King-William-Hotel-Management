@@ -34,14 +34,23 @@ class Employee {
       });
     }
 
-    static findByCriteria(criteria) {
-      let query = "SELECT * FROM employee";
+    static findByCriteria(criteria) 
+    {
+      let query = `
+        SELECT 
+          employee.*, 
+          position.position_desc
+        FROM 
+          employee
+        LEFT JOIN 
+          position ON employee.position_id = position.position_id
+      `;
       let conditions = [];
       let values = [];
   
       Object.keys(criteria).forEach(key => {
-        if (criteria[key]) {
-          conditions.push(`${key} = ?`);
+        if (criteria[key] && criteria[key] !== 'Any') {
+          conditions.push(`employee.${key} = ?`);
           values.push(criteria[key]);
         }
       });
@@ -52,9 +61,7 @@ class Employee {
   
       return pool.promise().query(query, values);
     }
-    static findById(id) {
-      return pool.promise().query("SELECT * FROM employee WHERE emp_id = ?", [id]);
-    }
+
 }
 
 module.exports = Employee;
