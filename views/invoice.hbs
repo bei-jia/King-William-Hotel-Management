@@ -25,28 +25,42 @@
       </tr>
     </thead>
     <tbody>
-       {{#each transactions}}
-          <tr>
-            <td>{{item_desc}}</td>
-            <td>{{guest_trans_item_quantity}}</td>
-            <td>{{formatCurrency guest_trans_price}}</td>
-            <td>{{calculateTotal guest_trans_item_quantity guest_trans_price}}</td>
-          </tr>
-        {{/each}}
+      <tr>
+        <td>Room</td>
+        <td>1</td>
+        <td>{{formatCurrency roomPrice}}</td>
+        <td>{{formatCurrency roomPrice}}</td>
+      </tr>
+      {{#each transactions}}
+        <tr>
+          <td>{{item_desc}}</td>
+          <td>{{guest_trans_item_quantity}}</td>
+          <td>{{formatCurrency guest_trans_price}}</td>
+          <td>{{calculateTotal
+              guest_trans_item_quantity
+              guest_trans_price
+            }}</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
   <table class="balance">
     <tr>
       <th>Subtotal</th>
-      <td>{{calculateSubtotal transactions}}</td>
+      <td>{{formatCurrency (calculateSubtotal transactions roomPrice)}}</td>
     </tr>
     <tr>
       <th>HST 13%</th>
-      <td>{{calculateTax (calculateSubtotal transactions) 0.13}}</td>
+      <td>{{formatCurrency
+          (calculateTax (calculateSubtotal transactions roomPrice) 0.13)
+        }}</td>
     </tr>
     <tr>
       <th>TOTAL</th>
-       <td>${{calculateGrandtotal (calculateSubtotal transactions) (calculateTax (calculateSubtotal transactions) 0.13)}}</td>
+      <td>${{calculateGrandtotal
+          (calculateSubtotal transactions roomPrice)
+          (calculateTax (calculateSubtotal transactions roomPrice) 0.13)
+        }}</td>
     </tr>
   </table>
 </main>

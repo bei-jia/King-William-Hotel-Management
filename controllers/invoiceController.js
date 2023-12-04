@@ -1,4 +1,4 @@
-const Invoice = require('../models/Invoice');
+const Invoice = require("../models/Invoice");
 
 const invoiceView = (req, res) => {
   const id = req.params.id;
@@ -9,13 +9,16 @@ const invoiceView = (req, res) => {
           pageTitle: "King William's - View Invoice",
           pageStyle: "/css/invoice.css",
           invoice: rows[0],
-          transactions: rows
+          transactions: rows,
+          roomPrice: rows[0].rm_base_rate,
         });
       } else {
-        res.status(404).send('Invoice not found. This guest has no transactions.');
+        res
+          .status(404)
+          .send("Invoice not found. This guest has no transactions.");
       }
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 };
 
 module.exports = { invoiceView };

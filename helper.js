@@ -45,18 +45,23 @@ Handlebars.registerHelper("calculateTotal", function (quantity, price) {
   return "$0.00";
 });
 
-Handlebars.registerHelper("calculateSubtotal", function (transactions) {
-  let subtotal = 0;
+Handlebars.registerHelper(
+  "calculateSubtotal",
+  function (transactions, roomPrice) {
+    let subtotal = 0;
 
-  transactions.forEach((transaction) => {
-    const total =
-      parseFloat(transaction.guest_trans_item_quantity) *
-      parseFloat(transaction.guest_trans_price);
-    subtotal += isNaN(total) ? 0 : total;
-  });
+    transactions.forEach((transaction) => {
+      const total =
+        parseFloat(transaction.guest_trans_item_quantity) *
+        parseFloat(transaction.guest_trans_price);
+      subtotal += isNaN(total) ? 0 : total;
+    });
 
-  return subtotal.toFixed(2);
-});
+    subtotal += parseFloat(roomPrice);
+
+    return subtotal.toFixed(2);
+  }
+);
 
 Handlebars.registerHelper("calculateTax", function (subtotal, taxRate) {
   // Ensure subtotal and taxRate are numeric values
