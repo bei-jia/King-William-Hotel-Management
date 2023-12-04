@@ -12,10 +12,21 @@ Handlebars.registerHelper("formatDateTime", function (datetime) {
   const year = datetime.getFullYear();
   const month = String(datetime.getMonth() + 1).padStart(2, "0");
   const day = String(datetime.getDate()).padStart(2, "0");
-  const hour = String(datetime.getHours()).padStart(2, "0");
+  let hour = String(datetime.getHours()).padStart(2, "0");
   const minute = String(datetime.getMinutes()).padStart(2, "0");
 
-  return `${year}-${month}-${day} ${hour}:${minute}`;
+  var sAMPM = "AM";
+
+  var iHourCheck = parseInt(hour);
+
+  if (iHourCheck > 12) {
+    sAMPM = "PM";
+    hour = iHourCheck - 12;
+  } else if (iHourCheck === 0) {
+    hour = "12";
+  }
+
+  return `${year}-${month}-${day} ${hour}:${minute} ${sAMPM}`;
 });
 
 Handlebars.registerHelper("convertToYesNo", function (value) {
