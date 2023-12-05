@@ -34,9 +34,7 @@ const createTransactions = (req, res) => {
       guest_stay_id: req.body.guest_stay_id,
       item_id: req.body.item,
       guest_trans_item_quantity: req.body.guest_trans_item_quantity,
-      guest_trans_price: parseFloat(
-        rows[0].item_price * parseInt(req.body.guest_trans_item_quantity)
-      ),
+      guest_trans_price: rows[0].item_price,
     };
 
     GuestTransaction.createTransaction(newTransaction)
