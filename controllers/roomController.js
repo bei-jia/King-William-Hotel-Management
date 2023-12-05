@@ -1,5 +1,6 @@
 const pool = require("../database");
 const Room = require("../models/Room/Room");
+const RoomStatus = require("../models/Room/RoomStatus");
 const allRoomsView = async (req, res) => {
   try {
     const rooms = await Room.getByFilters({});
@@ -15,13 +16,38 @@ const allRoomsView = async (req, res) => {
 };
 
 // roomController.js
-const editRoomView = (req, res) => {
-  const pageTitle = "King William's - Edit Room";
-  const pageStyle = "/css/room/edit-room.css";
-  res.render("room/edit-room", {
-    pageTitle: pageTitle,
-    pageStyle: pageStyle,
-  });
+const editRoomView = async (req, res) => {
+  try {
+    const roomId = req.params.id;
+    const room = await Room.findById(roomId);
+    const statuses = await RoomStatus.findAll();
+
+    res.render("room/edit-room", {
+      pageTitle: "King William's - Edit Room",
+      pageStyle: "/css/room/edit-room.css",
+      room: room,
+      statuses: statuses,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+};
+
+const updateRoom = async (req, res) => {
+  try {
+    const roomId = req.params.id;
+    const updatedData = {
+      rm_status_id: req.body.status,
+      rm_is_occupied: req.body.occupied
+    };
+
+    await Room.update(roomId, updatedData);
+    res.redirect('/room/all-rooms');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 };
 
 const searchRooms = async (req, res) => {
@@ -45,4 +71,4 @@ const searchRooms = async (req, res) => {
   }
 };
 
-module.exports = { allRoomsView, searchRooms, editRoomView };
+module.exports = { allRoomsView, searchRooms, editRoomView, updateRoom};
