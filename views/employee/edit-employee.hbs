@@ -96,24 +96,16 @@
       <div class="width-100">
         <label for="type">Employment Type</label>
         <select id="type" name="type" class="top-gap">
-          <option value="permanent">Permanent</option>
-          <option value="temporary">Temporary</option>
+          <option value="permanent" {{#if isPermanent}}selected{{/if}}>Permanent</option>
+          <option value="temporary" {{#if isTemporary}}selected{{/if}}>Temporary</option>
         </select>
       </div>
       <div class="width-100">
         <label for="position">Position</label>
         <select id="position" name="position" class="top-gap">
-          <option value="1">manager</option>
-          <option value="2">assistant</option>
-          <option value="3">head concierge</option>
-          <option value="4">concierge</option>
-          <option value="5">receptionist</option>
-          <option value="6">housekeeper</option>
-          <option value="7">maintenance worker</option>
-          <option value="8">chef</option>
-          <option value="9">kitchen assistant</option>
-          <option value="10">wait staff</option>
-          <option value="11">doorman</option>
+          {{#each positions}}
+            <option value="{{position_id}}" {{#ifCond ../employee.position_id "===" position_id}}selected{{/ifCond}}>{{position_desc}}</option>
+          {{/each}}
         </select>
       </div>
     </div>

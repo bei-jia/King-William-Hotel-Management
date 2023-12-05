@@ -1,5 +1,7 @@
 const pool = require("../database");
 const Employee = require("../models/Employee/Employee");
+const Position = require("../models/Position");
+const position = new Position();
 
 const allEmployeesView = (req, res) => {
   const criteria = req.query;
@@ -17,9 +19,13 @@ const allEmployeesView = (req, res) => {
 const addEmployeeView = (req, res) => {
   const pageTitle = "King William's - Add Employee";
   const pageStyle = "/css/employee/add-employee.css";
-  res.render("employee/add-employee", {
-    pageTitle: pageTitle,
-    pageStyle: pageStyle,
+
+  position.findAll().then((results) => {
+    res.render("employee/add-employee", {
+      pageTitle: pageTitle,
+      pageStyle: pageStyle,
+      positions: results,
+    });
   });
 };
 
@@ -54,10 +60,15 @@ const editEmployeeView = (req, res) => {
   Employee.findByCriteria({ emp_id: id })
     .then(([rows]) => {
       if (rows.length > 0) {
-        res.render("employee/edit-employee", {
-          pageTitle: pageTitle,
-          pageStyle: pageStyle,
-          employee: rows[0],
+        position.findAll().then((results) => {
+          res.render("employee/edit-employee", {
+            pageTitle: pageTitle,
+            pageStyle: pageStyle,
+            employee: rows[0],
+            isPermanent: rows[0].emp_is_permanent === 1 ? true : false,
+            isTemporary: rows[0].emp_is_permanent === 0 ? true : false,
+            positions: results,
+          });
         });
       } else {
         res.status(404).send("Employee not found");
