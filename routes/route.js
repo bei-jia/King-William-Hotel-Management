@@ -18,6 +18,7 @@ const {
   allRoomsView,
   editRoomView,
   searchRooms,
+  updateRoom
 } = require("../controllers/roomController");
 const {
   allReservationView,
@@ -61,6 +62,7 @@ router.get("/item/all-items", allItemsView);
 router.get("/room/all-rooms", allRoomsView);
 router.get("/room/search-rooms", searchRooms);
 router.get("/room/edit-room/:id", editRoomView);
+router.post("/room/edit-room/:id", updateRoom);
 
 // Reservation Routes
 router.get("/reservation/all-reservations", allReservationView);
