@@ -20,11 +20,13 @@
     <label for="roomInformation"><strong>Room Information</strong></label>
     <div id="roomInformation" class="flex-input top-gap">
       <div class="width-100">
-        <label for="roomNumber">Room Number</label>
-        {{! <select id="roomNumber">
-          <option disabled selected value>Please select room category first.</option>
-        </select> }}
-        <input type="text" id="roomId" name="roomId" class="entry-input" placeholder="Room Number" />
+        <label for="roomId">Room Number</label>
+        <select id="roomId" name="roomId">
+          <option selected>Select room number</option>
+          {{#each emptyRooms}}
+            <option value="{{rm_id}}">{{rm_id}}</option>
+          {{/each}}
+        </select>
       </div>
     </div>
 
