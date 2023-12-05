@@ -79,9 +79,13 @@
             <td>{{guest_email}}</td>
             <td>{{guest_phone}}</td>
             <td>
-              <a href="/guest/edit-guest/{{this.guest_id}}">Edit</a>
-              <a href="/reservation/add-reservation/{{this.guest_id}}">Add
-                Reservation</a>
+              <button
+                onclick="window.location.href='/guest/edit-guest/{{this.guest_id}}'"
+              >Edit</button>
+              <button
+                style="background-color:springgreen;"
+                onclick="window.location.href='/reservation/add-reservation/{{this.guest_id}}'"
+              >Add Reservation</button>
             </td>
           </tr>
         {{/each}}
