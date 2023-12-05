@@ -10,6 +10,7 @@ const invoiceView = (req, res) => {
           pageStyle: "/css/invoice.css",
           invoice: rows[0],
           transactions: rows,
+          hasItems: rows[0].item_desc !== null,
           roomPrice: rows[0].rm_base_rate,
         });
       } else {
