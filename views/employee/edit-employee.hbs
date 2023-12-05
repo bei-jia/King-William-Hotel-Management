@@ -1,0 +1,132 @@
+<div class="header-container">
+  <img src="/images/king-william-logo.png" class="logo" />
+  <h1>King William's - Add Employee</h1>
+</div>
+<div class="container">
+  <form action="/employee/edit-employee/{{employee.emp_id}}" method="post">
+    <label for="fullName"><strong>Full Name</strong></label>
+    <div id="fullName" class="flex-input top-gap">
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        class="entry-input"
+        placeholder="First Name"
+        value="{{employee.emp_fname}}"
+      />
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        class="entry-input"
+        placeholder="Last Name"
+        value="{{employee.emp_lname}}"
+      />
+    </div>
+    <label for="hiredDateInput"><strong>Hired Date</strong></label>
+    <div id="hiredDate" class="top-gap">
+      <input
+        type="date"
+        id="hiredDateInput"
+        name="hiredDate"
+        class="entry-input"
+        required
+        value="{{formatDate employee.emp_hire_date}}"
+      />
+    </div>
+
+    <label for="address"><strong>Address</strong></label>
+    <input
+      type="text"
+      id="street"
+      name="street"
+      class="top-gap"
+      placeholder="Street"
+      value="{{employee.emp_street}}"
+    />
+    <div class="flex-input">
+      <input
+        type="text"
+        id="city"
+        name="city"
+        class="entry-input"
+        placeholder="City"
+        value="{{employee.emp_city}}"
+      />
+      <input
+        type="text"
+        name="country"
+        id="country"
+        class="entry-input"
+        placeholder="Country"
+        value="{{employee.emp_country}}"
+      />
+    </div>
+    <div class="entry-item">
+      <input
+        type="text"
+        name="postalCode"
+        id="postalCode"
+        class="entry-input"
+        placeholder="Postal Code"
+        value="{{employee.emp_postal_code}}"
+      />
+    </div>
+    <label for="contactInformation"><strong>Contact Information</strong></label>
+    <div id="contactInformation" class="flex-input top-gap">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="entry-input"
+        placeholder="Email Address"
+        value="{{employee.emp_email}}"
+      />
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        class="entry-input"
+        placeholder="Phone Number (ex. 9051231234)"
+        value="{{employee.emp_phone}}"
+      />
+    </div>
+    <label for="employment"><strong>Employment</strong></label>
+    <div id="employment" class="flex-input top-gap">
+      <div class="width-100">
+        <label for="type">Employment Type</label>
+        <select id="type" name="type" class="top-gap">
+          <option value="permanent">Permanent</option>
+          <option value="temporary">Temporary</option>
+        </select>
+      </div>
+      <div class="width-100">
+        <label for="position">Position</label>
+        <select id="position" name="position" class="top-gap">
+          <option value="1">manager</option>
+          <option value="2">assistant</option>
+          <option value="3">head concierge</option>
+          <option value="4">concierge</option>
+          <option value="5">receptionist</option>
+          <option value="6">housekeeper</option>
+          <option value="7">maintenance worker</option>
+          <option value="8">chef</option>
+          <option value="9">kitchen assistant</option>
+          <option value="10">wait staff</option>
+          <option value="11">doorman</option>
+        </select>
+      </div>
+    </div>
+
+    <br />
+    <button type="submit">Submit</button>
+    <button id="clear-all">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button
+    onclick="window.location.href='/employee/all-employees'"
+    class="footer-button"
+  >Return to Employees Page</button>
+</div>
+<script src="/js/utility.js"></script>

@@ -8,8 +8,8 @@
 </div>
 
 <div class="navbar">
-  <button onclick="window.location.href='/'" class="footer-button">Return
-    to Manage Page</button>
+  <button onclick="window.location.href='/'" class="footer-button">Return to
+    Manage Page</button>
   <button
     onclick="window.location.href='add-employee'"
     class="footer-button"
@@ -47,8 +47,8 @@
         </select>
         <label for="position_id">Position</label>
         <select id="position" name="position_id" class="top-gap">
-          <option value="">Any</option> 
-          <option value="1">Manager</option> 
+          <option value="">Any</option>
+          <option value="1">Manager</option>
           <option value="2">Assistant</option>
           <option value="3">Head Concierge</option>
           <option value="4">Concierge</option>
@@ -83,6 +83,7 @@
           <th>Phone</th>
           <th>Is Permanent?</th>
           <th>Position</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -102,8 +103,12 @@
             <td>{{this.emp_phone}}</td>
             <td>{{#if this.emp_is_permanent}}Yes{{else}}No{{/if}}</td>
             <td>{{this.position_desc}}</td>
-
-            <!--<td>{{lookup ../positions this.position_id}}</td> -->
+            <td>
+              <button
+                class="edit"
+                onclick="window.location.href='/employee/edit-employee/{{this.emp_id}}'"
+              >Edit</button>
+            </td>
           </tr>
         {{/each}}
       </tbody>

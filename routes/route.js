@@ -29,6 +29,8 @@ const {
   allEmployeesView,
   addEmployeeView,
   addEmployee,
+  editEmployeeView,
+  editEmployee,
 } = require("../controllers/employeeController");
 const {
   allTransactionsView,
@@ -73,6 +75,8 @@ router.post("/reservation/add-reservation/:id", addReservation);
 router.get("/employee/all-employees", allEmployeesView);
 router.get("/employee/add-employee", addEmployeeView);
 router.post("/employee/add-employee", addEmployee);
+router.get("/employee/edit-employee/:id", editEmployeeView);
+router.post("/employee/edit-employee/:id", editEmployee);
 
 // Transaction Routes
 router.get("/transaction/all-transactions", allTransactionsView);
