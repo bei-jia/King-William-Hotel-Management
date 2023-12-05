@@ -39,8 +39,7 @@ section .title {
 .selection {
   display: flex;
   flex-direction: row;
-  margin-left: 5rem;
-  margin-right: 2rem;
+  margin-left: 7rem;
 }
 
 .selection > a {
