@@ -23,6 +23,7 @@ body {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
+  overflow-x: auto;
 }
 h1 {
   text-align: center;
@@ -130,4 +131,13 @@ div.filter label:after {
 
 .invoice {
   background-color: lightgreen;
+}
+
+.checkout {
+  background-color: red;
+  color: black;
+}
+
+.actions {
+  display: flex;
 }

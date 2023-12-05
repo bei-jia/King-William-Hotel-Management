@@ -68,10 +68,12 @@
             <td>{{formatDate guest_stay_check_in_date}}</td>
             <td>{{formatDate guest_stay_check_out_date}}</td>
             <td>{{guest_stay_balance}}</td>
-            <td><button
+            <td class="actions">
+              <button
                 class="invoice"
                 onclick="window.open('/invoice/{{this.guest_stay_id}}')"
-              >Generate Invoice</button></td>
+              >Generate Invoice</button>
+              <button class="checkout">Check Out</button></td>
           </tr>
         {{/each}}
       </tbody>
