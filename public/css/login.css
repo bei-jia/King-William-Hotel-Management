@@ -41,12 +41,13 @@ section .right {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   width: 80%;
 }
 
 section .right > form {
-  margin-left: 4rem;
+  margin-left: 5%;
 }
 
 input {
@@ -58,14 +59,11 @@ input[type="password"] {
   background: transparent;
   border: none;
   border-bottom: 3px solid #939393;
-  display: flex;
   justify-content: center;
   align-items: flex-start;
   font-size: 1.75rem;
-  padding: 2px 5px;
   width: 100%;
   align-self: center;
-  margin-left: 1rem;
 }
 
 input[type="text"]:focus,
