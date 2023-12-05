@@ -3,41 +3,37 @@
   <h1>King William's - Edit Room</h1>
 </div>
 <div class="container">
-  <form>
+  <form action="/room/edit-room/{{room.rm_id}}" method="post">
     <label for="reservationID"><strong>Room Number</strong></label>
     <div id="reservationID" class="top-gap">
-      <input type="number" class="entry-input" readonly />
+      <input type="number" class="entry-input" value="{{room.rm_id}}" readonly />
     </div>
 
-    <br />
+    <br/>
 
     <label for="itemInformation"><strong>Room Information</strong></label>
     <div class="flex-input top-gap">
-      <div style="width: 100%;">
-        <label for="itemName">Room Status</label>
-        <select id="itemName" class="top-gap">
-          <option value="1">Item 1</option>
-          <option value="2">Item 2</option>
-        </select>
-      </div>
-      <div style="width: 100%;">
-        <label for="itemName">Room Occupied</label>
-        <select id="itemName" class="top-gap">
-          <option value="1">Item 1</option>
-          <option value="2">Item 2</option>
+    <div style="width: 100%;"> 
+    <label for="roomStatus"><strong>Room Status</strong></label>
+      <select id="roomStatus" name="status" class="entry-input">
+        <option value="1" {{#if room.rm_status_id}}selected{{/if}}>Everything is in good condition</option>
+        <option value="2" {{#unless room.rm_status_id}}selected{{/unless}}>Have something damaged</option>
+      </select>
+    </div>
+    <div style="width: 100%;">
+        <label for="roomOccupied"><strong>Room Occupied</strong></label>
+        <select id="roomOccupied" name="occupied" class="entry-input">
+          <option value="0" {{#unless room.rm_is_occupied}}selected{{/unless}}>No</option>
+          <option value="1" {{#if room.rm_is_occupied}}selected{{/if}}>Yes</option>
         </select>
       </div>
     </div>
-
-    <br />
+    <br/>
     <button type="submit">Submit</button>
-    <button id="clear-all">Clear All</button>
+    <button type="reset">Clear All</button>
   </form>
 </div>
 <div style="text-align: center; margin-top: 20px;">
-  <button
-    onclick="window.location.href='/room/all-rooms'"
-    class="footer-button"
-  >Return to Rooms Page</button>
+  <button onclick="window.location.href='/room/all-rooms'" class="footer-button">Return to Rooms Page</button>
 </div>
 <script src="/js/utility.js"></script>

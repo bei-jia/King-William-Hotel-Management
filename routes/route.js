@@ -2,12 +2,39 @@ const express = require("express");
 const { loginView, login } = require("../controllers/loginController");
 
 const { manageView } = require("../controllers/manageController");
-const { allGuestsView, editGuestView, addGuestView, addGuest, editGuest } = require("../controllers/guestController");
-const { addItemView, allItemsView, createItemsView } = require("../controllers/itemController");
-const { allRoomsView, editRoomView, searchRooms } = require("../controllers/roomController");
-const { allReservationView, addReservationView, addReservation } = require("../controllers/reservationController");
-const { allEmployeesView, addEmployeeView, addEmployee } = require("../controllers/employeeController");
-const { allTransactionsView, addTransactionView, createTransactions } = require("../controllers/transactionController");
+const {
+  allGuestsView,
+  editGuestView,
+  addGuestView,
+  addGuest,
+  editGuest,
+} = require("../controllers/guestController");
+const {
+  addItemView,
+  allItemsView,
+  createItemsView,
+} = require("../controllers/itemController");
+const {
+  allRoomsView,
+  editRoomView,
+  searchRooms,
+  updateRoom,
+} = require("../controllers/roomController");
+const {
+  allReservationView,
+  addReservationView,
+  addReservation,
+} = require("../controllers/reservationController");
+const {
+  allEmployeesView,
+  addEmployeeView,
+  addEmployee,
+} = require("../controllers/employeeController");
+const {
+  allTransactionsView,
+  addTransactionView,
+  createTransactions,
+} = require("../controllers/transactionController");
 const { invoiceView } = require("../controllers/invoiceController");
 
 const router = express.Router();
@@ -35,6 +62,7 @@ router.get("/item/all-items", allItemsView);
 router.get("/room/all-rooms", allRoomsView);
 router.get("/room/search-rooms", searchRooms);
 router.get("/room/edit-room/:id", editRoomView);
+router.post("/room/edit-room/:id", updateRoom);
 
 // Reservation Routes
 router.get("/reservation/all-reservations", allReservationView);
