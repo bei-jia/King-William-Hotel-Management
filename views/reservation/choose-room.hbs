@@ -11,8 +11,8 @@
     <div id="roomInformation" class="flex-input top-gap">
       <div class="width-100">
         <label for="roomId">Room Number</label>
-        <select id="roomId" name="roomId">
-          <option selected>Select room number</option>
+        <select id="roomId" name="roomId" required>
+          <option value="" selected>Select room number</option>
           {{#each availableRooms}}
             <option value="{{rm_id}}">{{rm_id}} ({{rm_category}})</option>
           {{/each}}

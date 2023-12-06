@@ -6,7 +6,7 @@
   <form action="/transaction/add-transaction" method="post">
     <label for="reservationID"><strong>Reservation Number</strong></label>
     <div id="reservationID" class="top-gap">
-      <input name="guest_stay_id" type="number" class="entry-input" />
+      <input name="guest_stay_id" type="number" class="entry-input" required />
     </div>
 
     <br />
@@ -23,7 +23,12 @@
       </div>
       <div style="width: 100%;">
         <label for="itemQuantity">Item Quantity</label>
-        <input name="guest_trans_item_quantity" type="number" class="top-gap" />
+        <input
+          name="guest_trans_item_quantity"
+          type="number"
+          class="top-gap"
+          required
+        />
       </div>
     </div>
 
