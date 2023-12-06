@@ -85,10 +85,10 @@ const addReservation = async (req, res) => {
   }
 };
 
-const deleteReservation = (req, res) => {
+const cancelReservation = (req, res) => {
   const id = req.params.id;
 
-  Reservation.deleteReservation(id)
+  Reservation.cancelReservation(id)
     .then(() => {
       res.redirect("/reservation/all-reservations");
     })
@@ -106,5 +106,5 @@ module.exports = {
   addReservationView,
   addReservation,
   chooseRoomView,
-  deleteReservation,
+  cancelReservation,
 };

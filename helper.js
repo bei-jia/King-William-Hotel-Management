@@ -135,12 +135,20 @@ Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
   }
 });
 
-Handlebars.registerHelper("canBeCancelled", function (checkInDate, options) {
-  const today = new Date();
-  const checkIn = new Date(checkInDate);
+Handlebars.registerHelper(
+  "canBeCancelled",
+  function (checkInDate, isCancelled, options) {
+    const today = new Date();
+    const checkIn = new Date(checkInDate);
 
-  if (today < checkIn) {
-    return options.fn(this);
+    if (isCancelled === 1) {
+      return options.inverse(this);
+    } else {
+      if (today < checkIn) {
+        return options.fn(this);
+      } else {
+        return options.inverse(this);
+      }
+    }
   }
-  return options.inverse(this);
-});
+);
