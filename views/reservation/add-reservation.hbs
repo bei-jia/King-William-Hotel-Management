@@ -3,30 +3,31 @@
   <h1>King William's - Add Reservation</h1>
 </div>
 <div class="container">
-  <form action="/reservation/add-reservation/{{guest.guest_id}}" method="post">
+  <form action="/reservation/choose-room/{{guest.guest_id}}" method="get">
     <label for="reservationInformation"><strong>Reservation Information</strong></label>
     <div id="reservationInformation" class="flex-input top-gap">
       <div class="width-100">
         <label for="checkInDate">Check-in Date</label>
-        <input type="date" id="checkInDate" name="checkInDate" class="entry-input" placeholder="Check-in Date" />
+        <input
+          type="date"
+          id="checkInDate"
+          name="checkInDate"
+          class="entry-input"
+          placeholder="Check-in Date"
+          required
+        />
       </div>
 
       <div class="width-100">
         <label for="checkOutDate">Check-out Date</label>
-        <input type="date" id="checkOutDate" name="checkOutDate" class="entry-input" placeholder="Check-in Date" />
-      </div>
-    </div>
-    <br />
-    <label for="roomInformation"><strong>Room Information</strong></label>
-    <div id="roomInformation" class="flex-input top-gap">
-      <div class="width-100">
-        <label for="roomId">Room Number</label>
-        <select id="roomId" name="roomId">
-          <option selected>Select room number</option>
-          {{#each emptyRooms}}
-            <option value="{{rm_id}}">{{rm_id}}</option>
-          {{/each}}
-        </select>
+        <input
+          type="date"
+          id="checkOutDate"
+          name="checkOutDate"
+          class="entry-input"
+          placeholder="Check-in Date"
+          required
+        />
       </div>
     </div>
 
@@ -37,7 +38,10 @@
   </form>
 </div>
 <div style="text-align: center; margin-top: 20px;">
-  <button onclick="window.location.href='/guest/all-guests'" class="footer-button">Return to Guest Page</button>
+  <button
+    onclick="window.location.href='/guest/all-guests'"
+    class="footer-button"
+  >Return to Guest Page</button>
 </div>
 <script src="/js/utility.js"></script>
 <script src="/js/reservationHandlers.js"></script>

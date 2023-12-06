@@ -27,15 +27,15 @@ class Reservation {
     return pool.promise().query("SELECT * FROM guest WHERE guest_id = ?", [id]);
   }
 
-   // Find rooms that are not occupied
-   static findEmptyRooms() {
-    return pool.promise().query("SELECT * FROM room WHERE rm_is_occupied = 0" );
+  // Find rooms that are not occupied
+  static findEmptyRooms() {
+    return pool.promise().query("SELECT * FROM room WHERE rm_is_occupied = 0");
   }
 
   // Update the room so that the room is occupied
   static async occupyRoom(roomId) {
     try {
-      const query = 'UPDATE room SET rm_is_occupied = 1 WHERE rm_id = ?';
+      const query = "UPDATE room SET rm_is_occupied = 1 WHERE rm_id = ?";
       const [result] = await pool.promise().query(query, [roomId]);
 
       // Check if the update was successful
@@ -47,7 +47,7 @@ class Reservation {
         return false;
       }
     } catch (error) {
-      console.error('Error updating room status:', error);
+      console.error("Error updating room status:", error);
       throw error;
     }
   }
@@ -71,9 +71,18 @@ class Reservation {
       ];
       pool.query(query, values, (err, results) => {
         if (err) reject(err);
-        else resolve(results.insertId); 
+        else resolve(results.insertId);
       });
     });
+  }
+
+  static findAvailableRooms(checkInDate, checkOutDate) {
+    return pool.promise().query(
+      `SELECT * FROM room LEFT JOIN room_category ON room.rm_category_id = room_category.rm_category_id WHERE rm_id NOT IN 
+      (SELECT rm_id FROM guest_stay 
+      WHERE guest_stay_check_in_date <= ? AND guest_stay_check_out_date >= ?)`,
+      [checkOutDate, checkInDate]
+    );
   }
 }
 

@@ -16,15 +16,11 @@ const allReservationView = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
-
 const addReservationView = (req, res) => {
   const id = req.params.id;
 
   // Use Promise.all to fetch both guest and empty rooms in parallel
-  Promise.all([
-    Reservation.findGuestById(id),
-    Reservation.findEmptyRooms(),
-  ])
+  Promise.all([Reservation.findGuestById(id), Reservation.findEmptyRooms()])
     .then(([guestResult, emptyRoomsResult]) => {
       const [guestRows] = guestResult;
       const [emptyRoomsRows] = emptyRoomsResult;
@@ -43,7 +39,32 @@ const addReservationView = (req, res) => {
     .catch((err) => res.status(500).send(err));
 };
 
+const chooseRoomView = (req, res) => {
+  const id = req.params.id;
+  const checkInDate = req.query.checkInDate;
+  const checkOutDate = req.query.checkOutDate;
 
+  Reservation.findGuestById(id)
+    .then(([rows]) => {
+      if (rows.length > 0) {
+        Reservation.findAvailableRooms(checkInDate, checkOutDate).then(
+          ([availableRooms]) => {
+            res.render("reservation/choose-room", {
+              pageTitle: "King William's - Choose Room",
+              pageStyle: "/css/reservation/choose-room.css",
+              guest: rows[0],
+              availableRooms: availableRooms,
+              checkInDate: checkInDate,
+              checkOutDate: checkOutDate,
+            });
+          }
+        );
+      } else {
+        res.status(404).send("Guest not found");
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+};
 
 const addReservation = async (req, res) => {
   try {
@@ -71,7 +92,7 @@ const addReservation = async (req, res) => {
       res.redirect("/reservation/all-reservations");
     } else {
       // Handle the case where the room was not found or update failed
-      res.status(404).send('Room not found or failed to update room status');
+      res.status(404).send("Room not found or failed to update room status");
     }
   } catch (error) {
     console.error(error);
@@ -80,13 +101,15 @@ const addReservation = async (req, res) => {
   }
 };
 
-
-
-
 // Attach an 'uncaughtException' event handler to log uncaught exceptions
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err);
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
   // Handle or log the uncaught exception here
 });
 
-module.exports = { allReservationView, addReservationView, addReservation };
+module.exports = {
+  allReservationView,
+  addReservationView,
+  addReservation,
+  chooseRoomView,
+};
