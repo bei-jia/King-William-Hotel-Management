@@ -26,6 +26,8 @@ const {
   addReservation,
   chooseRoomView,
   cancelReservation,
+  editReservationView,
+  editReservation,
 } = require("../controllers/reservationController");
 const {
   allEmployeesView,
@@ -74,6 +76,8 @@ router.get("/reservation/add-reservation/:id", addReservationView);
 router.post("/reservation/add-reservation/:id", addReservation);
 router.get("/reservation/choose-room/:id", chooseRoomView);
 router.post("/reservation/cancel-reservation/:id", cancelReservation);
+router.get("/reservation/edit-reservation/:id", editReservationView);
+router.post("/reservation/edit-reservation/:id", editReservation);
 
 // Employee Routes
 router.get("/employee/all-employees", allEmployeesView);
