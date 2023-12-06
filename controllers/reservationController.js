@@ -91,8 +91,8 @@ const cancelReservation = (req, res) => {
 
   Reservation.findByCriteria({ guest_stay_id: id }).then(([rows]) => {
     if (rows.length > 0) {
-      const date1 = new Date(rows[0].guest_stay_check_in_date);
-      const date2 = new Date(rows[0].guest_stay_check_out_date);
+      const date1 = new Date();
+      const date2 = new Date(rows[0].guest_stay_check_in_date);
       const diffTime = Math.abs(date2 - date1);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
