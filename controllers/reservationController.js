@@ -1,5 +1,6 @@
 const Reservation = require("../models/Reservation");
 const Room = require("../models/Room/Room");
+const GuestTransaction = require("../models/Guest/GuestTransaction");
 
 const allReservationView = (req, res) => {
   const criteria = req.query;
@@ -85,14 +86,37 @@ const addReservation = async (req, res) => {
   }
 };
 
-const deleteReservation = (req, res) => {
+const cancelReservation = (req, res) => {
   const id = req.params.id;
 
-  Reservation.deleteReservation(id)
-    .then(() => {
-      res.redirect("/reservation/all-reservations");
-    })
-    .catch((err) => res.status(500).send(err));
+  Reservation.findByCriteria({ guest_stay_id: id }).then(([rows]) => {
+    if (rows.length > 0) {
+      const date1 = new Date();
+      const date2 = new Date(rows[0].guest_stay_check_in_date);
+      const diffTime = Math.abs(date2 - date1);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      GuestTransaction.getCurrentBalance(id).then(([currentBalance]) => {
+        let updatedBalance;
+
+        if (diffDays <= 2) {
+          updatedBalance = parseFloat(
+            currentBalance[0].guest_stay_balance / parseFloat(2)
+          );
+        } else {
+          updatedBalance = 0.0;
+        }
+
+        GuestTransaction.updateBalance(updatedBalance, id).then(() => {
+          Reservation.cancelReservation(id)
+            .then(() => {
+              res.redirect("/reservation/all-reservations");
+            })
+            .catch((err) => res.status(500).send(err));
+        });
+      });
+    }
+  });
 };
 
 // Attach an 'uncaughtException' event handler to log uncaught exceptions
@@ -106,5 +130,5 @@ module.exports = {
   addReservationView,
   addReservation,
   chooseRoomView,
-  deleteReservation,
+  cancelReservation,
 };

@@ -30,6 +30,13 @@
         <label for="roomID">Room Number</label>
         <input type="text" name="room.rm_id" id="roomID" />
 
+        <label for="isCancelled">Is Cancelled?</label>
+        <select name="guest_stay_is_cancelled" id="isCancelled">
+          <option value="">All</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+
         <label for="checkIn">Check In Date</label>
         <input type="date" name="guest_Stay_check_in_date" id="checkIn" />
 
@@ -51,6 +58,7 @@
           <th>First Name</th>
           <th>Last Name</th>
           <th>Room Number</th>
+          <th>Is Cancelled?</th>
           <th>Check-in Date</th>
           <th>Check-out Date</th>
           <th>Balance</th>
@@ -65,6 +73,13 @@
             <td>{{guest_fname}}</td>
             <td>{{guest_lname}}</td>
             <td>{{rm_id}}</td>
+            <td>
+              {{#if guest_stay_is_cancelled}}
+                Yes
+              {{else}}
+                No
+              {{/if}}
+            </td>
             <td>{{formatDate guest_stay_check_in_date}}</td>
             <td>{{formatDate guest_stay_check_out_date}}</td>
             <td>{{guest_stay_balance}}</td>
@@ -73,9 +88,11 @@
                 class="invoice"
                 onclick="window.open('/invoice/{{this.guest_stay_id}}')"
               >Generate Invoice</button>
-              {{#canBeCancelled guest_stay_check_in_date}}
+              {{#canBeCancelled
+                guest_stay_check_in_date guest_stay_is_cancelled
+              }}
                 <form
-                  action="/reservation/delete-reservation/{{this.guest_stay_id}}"
+                  action="/reservation/cancel-reservation/{{this.guest_stay_id}}"
                   method="post"
                 >
                   <button

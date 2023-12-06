@@ -85,10 +85,13 @@ class Reservation {
     );
   }
 
-  static deleteReservation(id) {
+  static cancelReservation(id) {
     return pool
       .promise()
-      .query("DELETE FROM guest_stay WHERE guest_stay_id = ?", [id]);
+      .query(
+        "UPDATE guest_stay SET guest_stay_is_cancelled = 1, guest_stay_cancelled_time = current_timestamp WHERE guest_stay_id = ?",
+        [id]
+      );
   }
 }
 
