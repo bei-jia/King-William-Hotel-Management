@@ -23,8 +23,9 @@ class GuestTransaction {
       });
     });
   }
-    static findTransaction(filters){
-        let query = `SELECT guest_trans_id, guest_trans_date, guest_trans_price, item_desc, guest_trans_item_quantity, 
+
+  static findTransaction(filters) {
+    let query = `SELECT guest_trans_id, guest_trans_date, guest_trans_price, item_desc, guest_trans_item_quantity, 
                         guest_stay_id
                       FROM guest_transaction gt
                       INNER JOIN item i ON gt.item_id = i.item_id`;
@@ -44,6 +45,18 @@ class GuestTransaction {
     }
 
     return pool.promise().query(query, values);
+  }
+
+  static getCurrentBalance(stay_id) {
+    return pool.promise().query(
+      `SELECT guest_stay_balance FROM guest_stay WHERE guest_stay_id = ?`, [stay_id],
+    );
+  }
+
+  static updateBalance(updatedBalance, stay_id){
+    return pool.promise().query(
+      `UPDATE guest_stay SET guest_stay_balance = ? WHERE guest_stay_id = ?`, [updatedBalance, stay_id]
+    );
   }
 }
 

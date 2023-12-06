@@ -55,7 +55,7 @@ const addReservation = async (req, res) => {
       const newReservation = {
         checkInDate: req.body.checkInDate,
         checkOutDate: req.body.checkOutDate,
-        balance: room.rm_base_rate,
+        balance: room.rm_base_rate * 1.13,
         isCancelled: 0,
         cancelledTime: null,
         guestId: guestId,
