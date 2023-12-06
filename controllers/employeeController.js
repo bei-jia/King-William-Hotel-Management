@@ -30,7 +30,6 @@ const addEmployeeView = (req, res) => {
 };
 
 const addEmployee = (req, res) => {
-  const employmentType = req.body.type === "permanent" ? 1 : 0;
   const positionId = parseInt(req.body.position);
 
   const newEmployee = {
@@ -43,7 +42,7 @@ const addEmployee = (req, res) => {
     postalCode: req.body.postalCode,
     email: req.body.email,
     phone: req.body.phone,
-    employmentType: employmentType,
+    employmentType: req.body.emp_is_permanent,
     positionId: positionId,
   };
 
