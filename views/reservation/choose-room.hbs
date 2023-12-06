@@ -1,0 +1,36 @@
+<div class="header-container">
+  <img src="/images/king-william-logo.png" class="logo" />
+  <h1>King William's - Choose Room</h1>
+</div>
+<div class="container">
+  <form action="/reservation/add-reservation/{{guestId}}" method="post">
+    <input type="hidden" name="checkInDate" value="{{checkInDate}}" />
+    <input type="hidden" name="checkOutDate" value="{{checkOutDate}}" />
+
+    <label for="roomInformation"><strong>Room Information</strong></label>
+    <div id="roomInformation" class="flex-input top-gap">
+      <div class="width-100">
+        <label for="roomId">Room Number</label>
+        <select id="roomId" name="roomId">
+          <option selected>Select room number</option>
+          {{#each availableRooms}}
+            <option value="{{rm_id}}">{{rm_id}} ({{rm_category}})</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    <br />
+
+    <button type="submit">Submit</button>
+    <button id="clear-all">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button
+    onclick="window.location.href='/guest/all-guests'"
+    class="footer-button"
+  >Return to Guest Page</button>
+</div>
+<script src="/js/utility.js"></script>
+<script src="/js/reservationHandlers.js"></script>
