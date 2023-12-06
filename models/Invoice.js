@@ -15,7 +15,9 @@ class Invoice {
       guest_trans_price,
       room_rate.rm_base_rate,
       guest_stay.guest_stay_check_in_date,
-      guest_stay.guest_stay_check_out_date
+      guest_stay.guest_stay_check_out_date,
+      guest_stay.guest_stay_balance,
+      guest_stay.guest_stay_is_cancelled
       FROM guest_stay left join guest on guest_stay.guest_id=guest.guest_id 
       left join room on guest_stay.rm_id=room.rm_id
       left join room_category on room.rm_category_id=room_category.rm_category_id

@@ -25,28 +25,53 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Room</td>
-        <td>{{roomQuantity}}</td>
-        <td>{{formatCurrency roomPrice}}</td>
-        <td>{{formatCurrency roomPrice}}</td>
-      </tr>
-      {{#if hasItems}}
-        {{#each transactions}}
-          <tr>
-            <td>{{item_desc}}</td>
-            <td>{{guest_trans_item_quantity}}</td>
-            <td>{{formatCurrency guest_trans_price}}</td>
-            <td>{{calculateTotal
-                guest_trans_item_quantity
-                guest_trans_price
-              }}</td>
-          </tr>
-        {{/each}}
+      {{#if isCancelled}}
+        <tr>
+          <td>Cancellation Fee</td>
+          <td>{{roomQuantity}}</td>
+          <td>{{formatCurrency roomPricePerNight}}</td>
+          <td>{{formatCurrency balancePenalty}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td>Room</td>
+          <td>{{roomQuantity}}</td>
+          <td>{{formatCurrency roomPricePerNight}}</td>
+          <td>{{formatCurrency roomPrice}}</td>
+        </tr>
+        {{#if hasItems}}
+          {{#each transactions}}
+            <tr>
+              <td>{{item_desc}}</td>
+              <td>{{guest_trans_item_quantity}}</td>
+              <td>{{formatCurrency guest_trans_price}}</td>
+              <td>{{calculateTotal
+                  guest_trans_item_quantity
+                  guest_trans_price
+                }}</td>
+            </tr>
+          {{/each}}
+        {{/if}}
       {{/if}}
     </tbody>
   </table>
   <table class="balance">
+    {{#if isCancelled}}
+    <tr>
+      <th>Subtotal</th>
+      <td>{{formatCurrency balancePenalty}}</td>
+    </tr>
+    <tr>
+      <th>HST 13%</th>
+      <td>{{formatCurrency (calculateTax balancePenalty 0.13)}}</td>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <td>${{calculateGrandtotal
+          balancePenalty
+          (calculateTax balancePenalty 0.13)
+        }}</td>
+    {{else}}
     <tr>
       <th>Subtotal</th>
       <td>{{formatCurrency (calculateSubtotal transactions roomPrice)}}</td>
@@ -64,5 +89,6 @@
           (calculateTax (calculateSubtotal transactions roomPrice) 0.13)
         }}</td>
     </tr>
+    {{/if}}
   </table>
 </main>

@@ -21,8 +21,11 @@ const invoiceView = (req, res) => {
           invoice: rows[0],
           transactions: rows,
           hasItems: rows[0].item_desc !== null,
+          roomPricePerNight: rows[0].rm_base_rate,
           roomPrice: roomPrice,
           roomQuantity: `${diffDays} night(s)`,
+          balancePenalty: parseFloat(rows[0].guest_stay_balance / 1.13),
+          isCancelled: rows[0].guest_stay_is_cancelled,
         });
       } else {
         res
