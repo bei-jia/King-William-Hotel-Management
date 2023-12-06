@@ -119,6 +119,45 @@ const cancelReservation = (req, res) => {
   });
 };
 
+const editReservationView = (req, res) => {
+  const id = req.params.id;
+  const pageTitle = "King William's - Edit Reservation";
+  const pageStyle = "/css/reservation/edit-reservation.css";
+
+  Reservation.findByCriteria({ guest_stay_id: id })
+    .then(([rows]) => {
+      if (rows.length > 0) {
+        res.render("reservation/edit-reservation", {
+          pageTitle: pageTitle,
+          pageStyle: pageStyle,
+          reservation: rows[0],
+        });
+      } else {
+        res.status(404).send("Reservation not found");
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+};
+
+const editReservation = (req, res) => {
+  const id = req.params.id;
+
+  GuestTransaction.getCurrentBalance(id).then(([currentBalance]) => {
+    const updatedBalance = parseFloat(
+      currentBalance[0].guest_stay_balance - parseFloat(req.body.balance)
+    );
+
+    GuestTransaction.updateBalance(updatedBalance, id)
+      .then(() => {
+        res.redirect("/reservation/all-reservations");
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send(err.message);
+      });
+  });
+};
+
 // Attach an 'uncaughtException' event handler to log uncaught exceptions
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
@@ -131,4 +170,6 @@ module.exports = {
   addReservation,
   chooseRoomView,
   cancelReservation,
+  editReservationView,
+  editReservation,
 };

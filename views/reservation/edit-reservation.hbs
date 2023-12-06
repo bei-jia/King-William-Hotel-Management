@@ -1,0 +1,47 @@
+<div class="header-container">
+  <img src="/images/king-william-logo.png" class="logo" />
+  <h1>King William's - Edit Reservation</h1>
+</div>
+<div class="container">
+  <form
+    action="/reservation/edit-reservation/{{reservation.guest_stay_id}}"
+    method="post"
+  >
+    <label for="reservationNumber"><strong>Reservation Number</strong></label>
+    <input
+      type="number"
+      name="reservationNumber"
+      id="reservationNumber"
+      class="top-gap"
+      placeholder="Reservation Number"
+      value="{{reservation.guest_stay_id}}"
+      readonly
+    />
+
+    <label for="balance"><strong>Payment</strong></label>
+    <input
+      type="number"
+      name="balance"
+      id="description"
+      class="top-gap"
+      placeholder="How much has the guest paid?"
+      step="any"
+      min="1"
+      max="{{reservation.guest_stay_balance}}"
+      required
+    />
+
+    <br />
+
+    <button type="submit">Submit</button>
+    <button id="clear-all">Clear All</button>
+  </form>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+  <button
+    onclick="window.location.href='/reservation/all-reservations'"
+    class="footer-button"
+  >Return to Reservation Page</button>
+</div>
+<script src="/js/utility.js"></script>
+<script src="/js/reservationHandlers.js"></script>

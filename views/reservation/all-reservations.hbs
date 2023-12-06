@@ -85,6 +85,9 @@
             <td>{{guest_stay_balance}}</td>
             <td class="actions">
               <button
+                onclick="window.location.href = '/reservation/edit-reservation/{{this.guest_stay_id}}'"
+              >Edit</button>
+              <button
                 class="invoice"
                 onclick="window.open('/invoice/{{this.guest_stay_id}}')"
               >Generate Invoice</button>
