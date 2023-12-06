@@ -51,11 +51,21 @@ const addReservation = async (req, res) => {
     const guestId = req.params.id;
 
     Room.getByFilters({ roomNumber: req.body.roomId }).then(async ([room]) => {
+      const checkInDate = req.body.checkInDate;
+      const checkOutDate = req.body.checkOutDate;
+
+      const date1 = new Date(checkInDate);
+      const date2 = new Date(checkOutDate);
+      const diffTime = Math.abs(date2 - date1);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      const roomPrice = parseFloat(room.rm_base_rate * parseInt(diffDays));
+
       // Create a new reservation
       const newReservation = {
-        checkInDate: req.body.checkInDate,
-        checkOutDate: req.body.checkOutDate,
-        balance: room.rm_base_rate * 1.13,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
+        balance: roomPrice * 1.13,
         isCancelled: 0,
         cancelledTime: null,
         guestId: guestId,
