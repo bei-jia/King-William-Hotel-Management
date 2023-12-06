@@ -84,6 +84,12 @@ class Reservation {
       [checkOutDate, checkInDate]
     );
   }
+
+  static deleteReservation(id) {
+    return pool
+      .promise()
+      .query("DELETE FROM guest_stay WHERE guest_stay_id = ?", [id]);
+  }
 }
 
 module.exports = Reservation;

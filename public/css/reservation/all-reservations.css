@@ -135,7 +135,8 @@ div.filter label:after {
 
 .checkout {
   background-color: red;
-  color: black;
+  color: white;
+  font-weight: bold;
 }
 
 .actions {

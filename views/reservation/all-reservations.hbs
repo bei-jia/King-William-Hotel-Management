@@ -73,7 +73,18 @@
                 class="invoice"
                 onclick="window.open('/invoice/{{this.guest_stay_id}}')"
               >Generate Invoice</button>
-              <button class="checkout">Check Out</button></td>
+              {{#canBeCancelled guest_stay_check_in_date}}
+                <form
+                  action="/reservation/delete-reservation/{{this.guest_stay_id}}"
+                  method="post"
+                >
+                  <button
+                    class="checkout"
+                    onclick="if (!(confirm('Are you sure you want to cancel this reservation?'))) return false"
+                  >Cancel</button>
+                </form>
+              {{/canBeCancelled}}
+            </td>
           </tr>
         {{/each}}
       </tbody>

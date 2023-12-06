@@ -75,6 +75,16 @@ const addReservation = async (req, res) => {
   }
 };
 
+const deleteReservation = (req, res) => {
+  const id = req.params.id;
+
+  Reservation.deleteReservation(id)
+    .then(() => {
+      res.redirect("/reservation/all-reservations");
+    })
+    .catch((err) => res.status(500).send(err));
+};
+
 // Attach an 'uncaughtException' event handler to log uncaught exceptions
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
@@ -86,4 +96,5 @@ module.exports = {
   addReservationView,
   addReservation,
   chooseRoomView,
+  deleteReservation,
 };

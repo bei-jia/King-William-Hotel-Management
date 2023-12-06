@@ -1,4 +1,5 @@
 const Handlebars = require("handlebars");
+const { options } = require("./routes/route");
 
 Handlebars.registerHelper("formatDate", function (date) {
   const year = date.getFullYear();
@@ -132,4 +133,14 @@ Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
     default:
       return options.inverse(this);
   }
+});
+
+Handlebars.registerHelper("canBeCancelled", function (checkInDate, options) {
+  const today = new Date();
+  const checkIn = new Date(checkInDate);
+
+  if (today < checkIn) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
