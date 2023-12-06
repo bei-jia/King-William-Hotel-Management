@@ -1,4 +1,5 @@
 const Reservation = require("../models/Reservation");
+const Room = require("../models/Room/Room");
 
 const allReservationView = (req, res) => {
   const criteria = req.query;
@@ -19,24 +20,11 @@ const allReservationView = (req, res) => {
 const addReservationView = (req, res) => {
   const id = req.params.id;
 
-  // Use Promise.all to fetch both guest and empty rooms in parallel
-  Promise.all([Reservation.findGuestById(id), Reservation.findEmptyRooms()])
-    .then(([guestResult, emptyRoomsResult]) => {
-      const [guestRows] = guestResult;
-      const [emptyRoomsRows] = emptyRoomsResult;
-
-      if (guestRows.length > 0) {
-        res.render("reservation/add-reservation", {
-          pageTitle: "King William's - Add Reservation",
-          pageStyle: "/css/reservation/add-reservation.css",
-          guest: guestRows[0],
-          emptyRooms: emptyRoomsRows,
-        });
-      } else {
-        res.status(404).send("Guest not found");
-      }
-    })
-    .catch((err) => res.status(500).send(err));
+  res.render("reservation/add-reservation", {
+    pageTitle: "King William's - Add Reservation",
+    pageStyle: "/css/reservation/add-reservation.css",
+    guestId: id,
+  });
 };
 
 const chooseRoomView = (req, res) => {
@@ -44,56 +32,42 @@ const chooseRoomView = (req, res) => {
   const checkInDate = req.query.checkInDate;
   const checkOutDate = req.query.checkOutDate;
 
-  Reservation.findGuestById(id)
-    .then(([rows]) => {
-      if (rows.length > 0) {
-        Reservation.findAvailableRooms(checkInDate, checkOutDate).then(
-          ([availableRooms]) => {
-            res.render("reservation/choose-room", {
-              pageTitle: "King William's - Choose Room",
-              pageStyle: "/css/reservation/choose-room.css",
-              guest: rows[0],
-              availableRooms: availableRooms,
-              checkInDate: checkInDate,
-              checkOutDate: checkOutDate,
-            });
-          }
-        );
-      } else {
-        res.status(404).send("Guest not found");
-      }
-    })
-    .catch((err) => res.status(500).send(err));
+  Reservation.findAvailableRooms(checkInDate, checkOutDate).then(
+    ([availableRooms]) => {
+      res.render("reservation/choose-room", {
+        pageTitle: "King William's - Choose Room",
+        pageStyle: "/css/reservation/choose-room.css",
+        guestId: id,
+        availableRooms: availableRooms,
+        checkInDate: checkInDate,
+        checkOutDate: checkOutDate,
+      });
+    }
+  );
 };
 
 const addReservation = async (req, res) => {
   try {
     const guestId = req.params.id;
 
-    // Create a new reservation
-    const newReservation = {
-      checkInDate: req.body.checkInDate,
-      checkOutDate: req.body.checkOutDate,
-      balance: 0,
-      isCancelled: 0,
-      cancelledTime: null,
-      guestId: guestId,
-      roomId: req.body.roomId,
-    };
+    Room.getByFilters({ roomNumber: req.body.roomId }).then(async ([room]) => {
+      // Create a new reservation
+      const newReservation = {
+        checkInDate: req.body.checkInDate,
+        checkOutDate: req.body.checkOutDate,
+        balance: room.rm_base_rate,
+        isCancelled: 0,
+        cancelledTime: null,
+        guestId: guestId,
+        roomId: req.body.roomId,
+      };
 
-    // Call a method to add the reservation
-    await Reservation.addReservation(newReservation);
+      // Call a method to add the reservation
+      await Reservation.addReservation(newReservation);
 
-    // Update the room status to rm_is_occupied = 1
-    const roomUpdateSuccess = await Reservation.occupyRoom(req.body.roomId);
-
-    if (roomUpdateSuccess) {
       // Redirect or send a response indicating success
       res.redirect("/reservation/all-reservations");
-    } else {
-      // Handle the case where the room was not found or update failed
-      res.status(404).send("Room not found or failed to update room status");
-    }
+    });
   } catch (error) {
     console.error(error);
     // Handle errors and send an appropriate error response
